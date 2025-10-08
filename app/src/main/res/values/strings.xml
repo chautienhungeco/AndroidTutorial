@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidTutorial</string>
+    <string name="number_2">Number 2</string>
+    <string name="number_1">Number 1</string>
+    <string name="calculate">Calculate</string>
+    <string name="hello_string">Xin Chào!</string>
+    <string name="login_string">Đăng Nhập Hệ Thống</string>
+    <string name="username_hint">Tên đăng nhập (vd: intern)</string>
+    <string name="password_hint">Mật khẩu (vd: 123456)</string>
+    <string name="button_login_string">Đăng Nhập</string>
 </resources>
