@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidTutorial</string>
+    <string name="app_name">Android Tutorial</string>
     <string name="number_2">Number 2</string>
     <string name="number_1">Number 1</string>
     <string name="calculate">Calculate</string>
@@ -8,4 +8,6 @@
     <string name="username_hint">Tên đăng nhập (vd: intern)</string>
     <string name="password_hint">Mật khẩu (vd: 123456)</string>
     <string name="button_login_string">Đăng Nhập</string>
+    <string name="btn_back">Quay lại</string>
+    <string name="splash_string">Đang mở...</string>
 </resources>

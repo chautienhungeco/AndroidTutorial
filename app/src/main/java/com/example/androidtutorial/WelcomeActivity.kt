@@ -1,7 +1,9 @@
 package com.example.androidtutorial
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -17,11 +19,17 @@ class WelcomeActivity : AppCompatActivity() {
         val tvWelcomeMessage = findViewById<TextView>(R.id.tvWelcomeMessage)
         val intent = intent
         val username = intent.getStringExtra(LoginActivity.EXTRA_USERNAME)
+        val btnBackLogin = findViewById<Button>(R.id.btnBacklogin)
 
         if (username != null && username.isNotEmpty()) {
-            tvWelcomeMessage.text = "Xin Chào, ${username.uppercase()}!"
+            tvWelcomeMessage.text = "Xin Chao, ${username.uppercase()}!"
         } else {
             tvWelcomeMessage.text = "Xin Chào Bạn!"
+        }
+
+        btnBackLogin.setOnClickListener{
+            val loginIntent = Intent(this, LoginActivity::class.java)
+            startActivity(loginIntent)
         }
     }
 

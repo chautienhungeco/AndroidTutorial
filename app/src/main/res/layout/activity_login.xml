@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/username_hint"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -28,7 +29,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
-        android:layout_marginTop="@dimen/_12dp"/>
+        android:layout_marginTop="@dimen/_12dp"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/tvError"
@@ -45,4 +47,11 @@
         android:text="@string/button_login_string"
         android:layout_marginTop="@dimen/_24dp"/>
 
+    <TextView
+        android:id="@+id/tvMessageOutLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text=""
+        android:layout_marginTop="@dimen/_24sp"/>
 </LinearLayout>

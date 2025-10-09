@@ -5,15 +5,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="@dimen/_16dp">
 
     <TextView
         android:id="@+id/tvWelcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_string"
-        android:textSize="28sp"
+        android:textSize="@dimen/_24sp"
         android:textStyle="bold"
         android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btnBacklogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24sp"
+        android:text="@string/btn_back" />
+
+    <TextView
+        android:id="@+id/tvMessageOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text=""
+        android:layout_marginTop="@dimen/_24sp"/>
+
 
 </LinearLayout>
