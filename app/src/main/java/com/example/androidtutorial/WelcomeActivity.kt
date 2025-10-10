@@ -5,21 +5,25 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
 class WelcomeActivity : AppCompatActivity() {
 
     private val TAG = "ANDROID_TUTORIAL"
 
+    companion object{
+        const val EXTRA_RETURN_MESSAGE = "extra_return_message"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
         Log.d(TAG, "onCreate: WelcomeActivity được TẠO.")
 
         val tvWelcomeMessage = findViewById<TextView>(R.id.tvWelcomeMessage)
-        val intent = intent
         val username = intent.getStringExtra(LoginActivity.EXTRA_USERNAME)
         val btnBackLogin = findViewById<Button>(R.id.btnBacklogin)
+        val edtResultMessage = findViewById<EditText>(R.id.edtResultMessage)
 
         if (username != null && username.isNotEmpty()) {
             tvWelcomeMessage.text = "Xin Chao, ${username.uppercase()}!"
@@ -28,8 +32,13 @@ class WelcomeActivity : AppCompatActivity() {
         }
 
         btnBackLogin.setOnClickListener{
-            val loginIntent = Intent(this, LoginActivity::class.java)
-            startActivity(loginIntent)
+            val messageToReturn = edtResultMessage.text.toString().trim()
+            val resultIntent = Intent()
+            resultIntent.putExtra(EXTRA_RETURN_MESSAGE, messageToReturn)
+            setResult(RESULT_OK, resultIntent)
+            finish()
+//            val loginIntent = Intent(this, LoginActivity::class.java)
+//            startActivity(loginIntent)
         }
     }
 

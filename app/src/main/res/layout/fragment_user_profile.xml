@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/_16dp">
+
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="@dimen/_120dp"
+        android:layout_height="@dimen/_120dp"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_marginBottom="@dimen/_16dp"/>
+
+    <Button
+        android:id="@+id/btnSelectAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_picture_string"
+        android:layout_marginBottom="@dimen/_24dp"/>
+
+    <TextView
+        android:id="@+id/tvFullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name_string"
+        android:textSize="@dimen/_16sp"
+        android:layout_marginBottom="@dimen/_8dp"/>
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/date_string"
+        android:textSize="@dimen/_16sp"
+        android:layout_marginBottom="@dimen/_8dp"/>
+
+    <TextView
+        android:id="@+id/tvHomeTown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quê quán: [Chưa cập nhật]"
+        android:textSize="@dimen/_16sp"
+        android:layout_marginBottom="@dimen/_24dp"/>
+
+    <Button
+        android:id="@+id/btnOpenSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mở cài đặt quyền"
+        android:layout_marginBottom="@dimen/_16dp"/>
+</LinearLayout>

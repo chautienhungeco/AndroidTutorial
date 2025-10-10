@@ -16,6 +16,13 @@
         android:textStyle="bold"
         android:gravity="center"/>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_view_tag"
+        android:name="com.example.androidtutorial.UserProfileFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_24dp"/>
+
     <Button
         android:id="@+id/btnBacklogin"
         android:layout_width="match_parent"
@@ -31,5 +38,12 @@
         android:text=""
         android:layout_marginTop="@dimen/_24sp"/>
 
-
+    <EditText
+        android:id="@+id/edtResultMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/out_message_string"
+        android:autofillHints=""
+        android:inputType="text"
+        android:gravity="center"/>
 </LinearLayout>

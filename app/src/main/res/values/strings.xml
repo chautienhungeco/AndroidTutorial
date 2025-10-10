@@ -10,4 +10,8 @@
     <string name="button_login_string">Đăng Nhập</string>
     <string name="btn_back">Quay lại</string>
     <string name="splash_string">Đang mở...</string>
+    <string name="out_message_string">Thông báo trả về</string>
+    <string name="select_picture_string">Chọn ảnh đại diện</string>
+    <string name="name_string">Họ tên: [Chưa cập nhật]</string>
+    <string name="date_string">Ngày sinh: [Chưa cập nhật</string>
 </resources>
