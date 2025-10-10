@@ -93,7 +93,7 @@ class UserProfileFragment : Fragment() {
     }
 
     private fun checkPermissionSelectImage(){
-        val permission = Manifest.permission.READ_MEDIA_IMAGES
+        val permission = Manifest.permission.READ_EXTERNAL_STORAGE
         val context = requireContext()
 
         when{
@@ -110,8 +110,8 @@ class UserProfileFragment : Fragment() {
 
         }
     }
-
-    // mở cai đat
+    // ưứng dụng không hiển thị popup cấp quyền
+    // mở cai đat xin cấp quyeen
     private fun openAppSettings() {
         val intent = Intent(
             android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
@@ -124,26 +124,6 @@ class UserProfileFragment : Fragment() {
             startActivity(intent)
         } catch (e: Exception) {
             Toast.makeText(requireContext(), "Không thể mở cài đặt ứng dụng.", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    // ưứng dụng không hiển thị popup cấp quyền
-    // tạo xin cấp quyeen
-    private fun checkPermissionAndSelectImage() {
-        val permission = Manifest.permission.READ_MEDIA_IMAGES
-        val context = requireContext()
-
-        when {
-            ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED -> {
-                selectImageLauncher.launch("image/*")
-            }
-            shouldShowRequestPermissionRationale(permission) -> {
-                Toast.makeText(context, "Ứng dụng cần quyền truy cập thư viện để bạn chọn ảnh đại diện.", Toast.LENGTH_LONG).show()
-                requestPermissionLauncher.launch(permission)
-            }
-            else -> {
-                requestPermissionLauncher.launch(permission)
-            }
         }
     }
 }
