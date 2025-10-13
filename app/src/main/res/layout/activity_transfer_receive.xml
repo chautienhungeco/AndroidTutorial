@@ -1,0 +1,30 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_receive_string"
+        android:textSize="@dimen/_20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/_20dp"/>
+
+    <TextView
+        android:id="@+id/tvReceivedContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_16sp"
+        android:textColor="#4CAF50"
+        android:text="@string/show_data_string"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back_to_send_data_screen_string"
+        android:backgroundTint="#9C27B0"/>
+</LinearLayout>

@@ -34,7 +34,7 @@
         <activity
             android:name=".auth.WelcomeActivity"
             android:exported="false" />
-        <activity android:name=".launchmode.MainActivity"
+        <activity android:name=".mainui.MainActivity"
             android:exported="false"/>
         <activity android:name=".launchmode.StandardActivity"
             android:launchMode="standard"
@@ -47,6 +47,10 @@
             android:exported="false"/>
         <activity android:name=".launchmode.SingleInstanceActivity"
             android:launchMode="singleInstance"
+            android:exported="false"/>
+        <activity android:name=".simpletransferdata.TransferStarterActivity"
+            android:exported="false"/>
+        <activity android:name=".simpletransferdata.TransferReceiveActivity"
             android:exported="false"/>
     </application>
 

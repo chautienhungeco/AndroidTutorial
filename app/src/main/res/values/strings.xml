@@ -15,4 +15,9 @@
     <string name="name_string">Họ tên: [Chưa cập nhật]</string>
     <string name="date_string">Ngày sinh: [Chưa cập nhật</string>
     <string name="check_launch_mode">Check Launch Mode</string>
+    <string name="send_data_string">MÀN HÌNH GỬI DỮ LIỆU</string>
+    <string name="receive_data_string">GỬI DỮ LIỆU SANG MÀN HÌNH NHẬN</string>
+    <string name="data_receive_string">MÀN HÌNH NHẬN DỮ LIỆU</string>
+    <string name="show_data_string">Nội dung nhận được sẽ hiển thị ở đây...\n\n</string>
+    <string name="back_to_send_data_screen_string">QUAY LẠI MÀN HÌNH GỬI</string>
 </resources>

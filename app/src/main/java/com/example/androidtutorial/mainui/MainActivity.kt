@@ -1,4 +1,4 @@
-package com.example.androidtutorial.launchmode
+package com.example.androidtutorial.mainui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,10 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.example.androidtutorial.R
+import com.example.androidtutorial.launchmode.SingleInstanceActivity
+import com.example.androidtutorial.launchmode.SingleTaskActivity
+import com.example.androidtutorial.launchmode.SingleTopActivity
+import com.example.androidtutorial.launchmode.StandardActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

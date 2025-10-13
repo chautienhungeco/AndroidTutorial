@@ -9,7 +9,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidtutorial.R
 import com.example.androidtutorial.common.Constants
-import com.example.androidtutorial.launchmode.MainActivity
+import com.example.androidtutorial.mainui.MainActivity
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -51,7 +51,6 @@ class WelcomeActivity : AppCompatActivity() {
         super.onStart()
         Log.d(TAG, "onStart: WelcomeActivity SẮP HIỂN THỊ, chưa tương tác.")
     }
-
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume: WelcomeActivity ĐANG TƯƠNG TÁC")
