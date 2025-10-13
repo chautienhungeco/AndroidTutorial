@@ -20,7 +20,7 @@
         tools:targetApi="33">
 
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".appinit.SplashScreenActivity"
             android:theme="@style/SplashscreenTheme"
             android:exported="true">
             <intent-filter>
@@ -29,11 +29,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:launchMode="singleTask"/>
+        <activity android:name=".auth.LoginActivity"
+            android:exported="false"/>
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".auth.WelcomeActivity"
             android:exported="false" />
+        <activity android:name=".launchmode.MainActivity"
+            android:exported="false"/>
+        <activity android:name=".launchmode.StandardActivity"
+            android:launchMode="standard"
+            android:exported="false"/>
+        <activity android:name=".launchmode.SingleTopActivity"
+            android:launchMode="singleTop"
+            android:exported="false"/>
+        <activity android:name=".launchmode.SingleTaskActivity"
+            android:launchMode="singleTask"
+            android:exported="false"/>
+        <activity android:name=".launchmode.SingleInstanceActivity"
+            android:launchMode="singleInstance"
+            android:exported="false"/>
     </application>
 
 </manifest>

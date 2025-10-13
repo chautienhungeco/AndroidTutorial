@@ -1,4 +1,4 @@
-package com.example.androidtutorial
+package com.example.androidtutorial.auth
 
 import android.app.Activity
 import android.content.Intent
@@ -8,9 +8,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.androidtutorial.R
+import com.example.androidtutorial.common.Constants
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,16 +20,12 @@ class LoginActivity : AppCompatActivity() {
     private val VALID_PASSWORD = "123456"
     private lateinit var tvMessageOut: TextView
 
-    companion object {
-        const val EXTRA_USERNAME = "extra_username"
-    }
-
     private val welcomeActivityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data: Intent? = result.data
-            val returnMessage = data?.getStringExtra(WelcomeActivity.EXTRA_RETURN_MESSAGE)
+            val returnMessage = data?.getStringExtra(Constants.EXTRA_RETURN_MESSAGE)
             if (!returnMessage.isNullOrEmpty()) {
                 tvMessageOut.text = "Tin nhắn tử Wellcome \"$returnMessage\""
 
@@ -60,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
             if (username == VALID_USERNAME && password == VALID_PASSWORD) {
                 tvError.text = ""
                 val welcomeIntent = Intent(this, WelcomeActivity::class.java)
-                welcomeIntent.putExtra(EXTRA_USERNAME, username)
+                welcomeIntent.putExtra(Constants.EXTRA_USERNAME, username)
                 welcomeActivityResultLauncher.launch(welcomeIntent)
 //                startActivity(welcomeIntent)
             } else {

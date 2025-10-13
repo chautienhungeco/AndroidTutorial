@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="@dimen/_16dp">
 
     <TextView
         android:id="@+id/tvWelcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/hello_string"
         android:textSize="@dimen/_24sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view_tag"
-        android:name="com.example.androidtutorial.UserProfileFragment"
+        android:name="com.example.androidtutorial.mainui.profile.UserProfileFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_24dp"/>
+        android:layout_marginBottom="@dimen/_24dp" />
 
     <Button
         android:id="@+id/btnBacklogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_24sp"
-        android:text="@string/btn_back" />
+        android:layout_marginTop="@dimen/_24dp"
+        android:text="@string/btn_back"
+        tools:ignore="VisualLintButtonSize" />
 
     <TextView
         android:id="@+id/tvMessageOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_24sp"
         android:text=""
-        android:layout_marginTop="@dimen/_24sp"/>
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/edtResultMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/out_message_string"
         android:autofillHints=""
+        android:gravity="center"
+        android:hint="@string/out_message_string"
         android:inputType="text"
-        android:gravity="center"/>
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/btnLaunchMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24dp"
+        android:text="@string/check_launch_mode"/>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.androidtutorial
+package com.example.androidtutorial.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,23 +7,24 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidtutorial.R
+import com.example.androidtutorial.common.Constants
+import com.example.androidtutorial.launchmode.MainActivity
 
 class WelcomeActivity : AppCompatActivity() {
 
     private val TAG = "ANDROID_TUTORIAL"
 
-    companion object{
-        const val EXTRA_RETURN_MESSAGE = "extra_return_message"
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
         Log.d(TAG, "onCreate: WelcomeActivity được TẠO.")
 
         val tvWelcomeMessage = findViewById<TextView>(R.id.tvWelcomeMessage)
-        val username = intent.getStringExtra(LoginActivity.EXTRA_USERNAME)
+        val username = intent.getStringExtra(Constants.EXTRA_USERNAME)
         val btnBackLogin = findViewById<Button>(R.id.btnBacklogin)
         val edtResultMessage = findViewById<EditText>(R.id.edtResultMessage)
+        val btnLaunchMode = findViewById<Button>(R.id.btnLaunchMode)
 
         if (username != null && username.isNotEmpty()) {
             tvWelcomeMessage.text = "Xin Chao, ${username.uppercase()}!"
@@ -31,14 +32,18 @@ class WelcomeActivity : AppCompatActivity() {
             tvWelcomeMessage.text = "Xin Chào Bạn!"
         }
 
-        btnBackLogin.setOnClickListener{
+        btnBackLogin.setOnClickListener {
             val messageToReturn = edtResultMessage.text.toString().trim()
             val resultIntent = Intent()
-            resultIntent.putExtra(EXTRA_RETURN_MESSAGE, messageToReturn)
+            resultIntent.putExtra(Constants.EXTRA_RETURN_MESSAGE, messageToReturn)
             setResult(RESULT_OK, resultIntent)
             finish()
 //            val loginIntent = Intent(this, LoginActivity::class.java)
 //            startActivity(loginIntent)
+        }
+        btnLaunchMode.setOnClickListener {
+            val launchModeIntent = Intent(this, MainActivity::class.java)
+            startActivity(launchModeIntent)
         }
     }
 

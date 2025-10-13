@@ -1,9 +1,8 @@
-package com.example.androidtutorial
+package com.example.androidtutorial.mainui.profile
 
 import android.content.pm.PackageManager
 import android.Manifest
 import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +16,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.androidtutorial.R
 
 class UserProfileFragment : Fragment() {
     private val TAG = "PROFILE_FRAGMENT"
@@ -83,7 +83,7 @@ class UserProfileFragment : Fragment() {
 
         updateUserInfo("[chưa cập nhật]", "[chưa cập nhật]", "[chưa cập nhật]", null)
 
-        btnSelectAvatar.setOnClickListener{
+        btnSelectAvatar.setOnClickListener {
             checkPermissionSelectImage()
         }
 
@@ -92,24 +92,30 @@ class UserProfileFragment : Fragment() {
         }
     }
 
-    private fun checkPermissionSelectImage(){
+    private fun checkPermissionSelectImage() {
         val permission = Manifest.permission.READ_EXTERNAL_STORAGE
         val context = requireContext()
 
-        when{
-            ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED -> {
+        when {
+            ContextCompat.checkSelfPermission(
+                context,
+                permission
+            ) == PackageManager.PERMISSION_GRANTED -> {
                 selectImageLauncher.launch("image/*")
             }
+
             shouldShowRequestPermissionRationale(permission) -> {
-                Toast.makeText(context,"Ứng dụng cần quyền truy cập", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Ứng dụng cần quyền truy cập", Toast.LENGTH_LONG).show()
                 requestPermissionLauncher.launch(permission)
             }
+
             else -> {
                 requestPermissionLauncher.launch(permission)
             }
 
         }
     }
+
     // ưứng dụng không hiển thị popup cấp quyền
     // mở cai đat xin cấp quyeen
     private fun openAppSettings() {
@@ -123,7 +129,8 @@ class UserProfileFragment : Fragment() {
         try {
             startActivity(intent)
         } catch (e: Exception) {
-            Toast.makeText(requireContext(), "Không thể mở cài đặt ứng dụng.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Không thể mở cài đặt ứng dụng.", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 }
