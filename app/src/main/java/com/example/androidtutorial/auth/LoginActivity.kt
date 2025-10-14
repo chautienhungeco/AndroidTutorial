@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.androidtutorial.DemoLayoutActivity
 import com.example.androidtutorial.R
 import com.example.androidtutorial.common.Constants
 
@@ -49,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val tvError = findViewById<TextView>(R.id.tvError)
         tvMessageOut = findViewById(R.id.tvMessageOutLogin)
+        val btnDemoLayout = findViewById<Button>(R.id.btnDemoLayout)
 
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
@@ -63,6 +65,11 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 tvError.text = "Tên đăng nhập hoặc mật khẩu không đúng!"
             }
+        }
+
+        btnDemoLayout.setOnClickListener {
+            val demoLayoutIntent = Intent(this,DemoLayoutActivity::class.java)
+            startActivity(demoLayoutIntent)
         }
     }
 

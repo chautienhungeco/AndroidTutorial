@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@drawable/bg_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DemoLayoutActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:gravity="center"
+        android:paddingTop="@dimen/_16dp"
+        android:paddingBottom="@dimen/_10dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="horizontal"
+                android:fontFamily="@font/inter_regular"
+                android:text="welcome to"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_14sp" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="horizontal"
+                android:fontFamily="@font/inter_bold"
+                android:text="EARTH MAP"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_24sp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnSetting"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:padding="6dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_setting"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rclVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_24dp"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_16dp"
+        android:layout_marginVertical="@dimen/_16dp"
+        app:layout_constraintTop_toBottomOf="@id/rclVideo">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_8dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnVideoLive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/im_traffic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtVideoLive"
+                    style="@style/TextCustomBold"
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:layout_marginBottom="@dimen/_16dp"
+                    android:fadingEdge="horizontal"
+                    android:ellipsize="marquee"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:text="@string/map_live_string"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.4"/>
+
+                <TextView
+                    style="@style/TextCustomBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:layout_marginBottom="18dp"
+                    android:background="@drawable/bg_text_live"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="@string/string_live"
+                    android:paddingHorizontal="@dimen/_12dp"
+                    android:paddingVertical="4dp"
+                    android:textSize="14sp"
+                    app:drawableStartCompat="@drawable/ic_point_white"
+                    app:layout_constraintBottom_toTopOf="@id/txtVideoLive"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.4"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <FrameLayout
+                android:id="@+id/flNative"
+                android:layout_width="match_parent"
+                android:layout_height="105dp"
+                android:background="@drawable/img_map_default"
+                android:layout_marginTop="16dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_street_map"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/txtStreetMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextCustomBold"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:layout_marginBottom="@dimen/_16dp"
+                    android:ellipsize="marquee"
+                    android:fadingEdge="horizontal"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/street_map"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/btn360"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/_8dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img_camera_360"/>
+
+                    <TextView
+                        android:id="@+id/txtCamera360"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/TextCustomBold"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="@dimen/_16dp"
+                        android:layout_marginBottom="8dp"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="@string/camera_360"
+                        android:textSize="@dimen/_16sp"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/btnEarth3d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img_earth_3d"/>
+
+                    <TextView
+                        android:id="@+id/txtEarth3d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="@dimen/_16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:ellipsize="marquee"
+                        android:fadingEdge="horizontal"
+                        android:fontFamily="@font/inter_medium"
+                        android:gravity="center"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="@string/earth_3d"
+                        android:textSize="@dimen/_16sp"/>
+                </FrameLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/flBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

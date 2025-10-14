@@ -20,4 +20,10 @@
     <string name="data_receive_string">MÀN HÌNH NHẬN DỮ LIỆU</string>
     <string name="show_data_string">Nội dung nhận được sẽ hiển thị ở đây...\n\n</string>
     <string name="back_to_send_data_screen_string">QUAY LẠI MÀN HÌNH GỬI</string>
+    <string name="map_live_string">Map Live</string>
+    <string name="string_live">LIVE</string>
+    <string name="street_map">Street Map</string>
+    <string name="camera_360">CAMERA 360</string>
+    <string name="earth_3d">EARTH 3D</string>
+    <string name="demo_layout_string">Demo Layout</string>
 </resources>
