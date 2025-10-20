@@ -10,9 +10,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.androidtutorial.DemoLayoutActivity
+import com.example.androidtutorial.present.HomeEarthMapActivity
 import com.example.androidtutorial.R
 import com.example.androidtutorial.common.Constants
+import com.example.androidtutorial.phonebook.PhoneBookActivity
+import com.example.androidtutorial.present.Dialog30Activity
+import com.example.androidtutorial.present.PayWallActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -51,6 +54,9 @@ class LoginActivity : AppCompatActivity() {
         val tvError = findViewById<TextView>(R.id.tvError)
         tvMessageOut = findViewById(R.id.tvMessageOutLogin)
         val btnDemoLayout = findViewById<Button>(R.id.btnDemoLayout)
+        val btnPhoneBook = findViewById<Button>(R.id.btnPhone)
+        val btnPayWall = findViewById<Button>(R.id.btnPaywall)
+        val btnDialog30 = findViewById<Button>(R.id.btnDialog30)
 
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
@@ -68,8 +74,23 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnDemoLayout.setOnClickListener {
-            val demoLayoutIntent = Intent(this,DemoLayoutActivity::class.java)
+            val demoLayoutIntent = Intent(this, HomeEarthMapActivity::class.java)
             startActivity(demoLayoutIntent)
+        }
+
+        btnPhoneBook.setOnClickListener {
+            val phoneBookIntent = Intent(this, PhoneBookActivity::class.java)
+            startActivity(phoneBookIntent)
+        }
+
+        btnPayWall.setOnClickListener {
+            val payWallIntent = Intent(this, PayWallActivity::class.java)
+            startActivity(payWallIntent)
+        }
+
+        btnDialog30.setOnClickListener {
+            val dialog30Intent = Intent(this, Dialog30Activity::class.java)
+            startActivity(dialog30Intent)
         }
     }
 

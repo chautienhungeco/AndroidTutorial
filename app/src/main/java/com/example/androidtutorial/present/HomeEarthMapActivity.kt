@@ -1,13 +1,14 @@
-package com.example.androidtutorial
+package com.example.androidtutorial.present
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidtutorial.R
 import com.example.androidtutorial.auth.LoginActivity
 
-class DemoLayoutActivity : AppCompatActivity() {
+class HomeEarthMapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo_map)
@@ -21,7 +22,7 @@ class DemoLayoutActivity : AppCompatActivity() {
         }
 
         imgSetting.setOnClickListener {
-            val settingIntent = Intent(this, DemoSettingActivity::class.java)
+            val settingIntent = Intent(this, SettingActivity::class.java)
             startActivity(settingIntent)
         }
     }

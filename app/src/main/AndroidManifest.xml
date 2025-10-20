@@ -52,9 +52,15 @@
             android:exported="false"/>
         <activity android:name=".simpletransferdata.TransferReceiveActivity"
             android:exported="false"/>
-        <activity android:name=".DemoLayoutActivity"
+        <activity android:name=".present.HomeEarthMapActivity"
             android:exported="false"/>
-        <activity android:name=".DemoSettingActivity"
+        <activity android:name=".present.SettingActivity"
+            android:exported="false"/>
+        <activity android:name=".phonebook.PhoneBookActivity"
+            android:exported="false"/>
+        <activity android:name=".present.PayWallActivity"
+            android:exported="false"/>
+        <activity android:name=".present.Dialog30Activity"
             android:exported="false"/>
     </application>
 

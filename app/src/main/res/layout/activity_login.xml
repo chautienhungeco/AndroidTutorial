@@ -61,4 +61,25 @@
         android:layout_height="wrap_content"
         android:text="@string/demo_layout_string"
         android:layout_marginTop="@dimen/_24dp"/>
+
+    <Button
+        android:id="@+id/btnPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_book"
+        android:layout_marginTop="@dimen/_24dp"/>
+
+    <Button
+        android:id="@+id/btnPaywall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pay Wall"
+        android:layout_marginTop="@dimen/_24dp"/>
+
+    <Button
+        android:id="@+id/btnDialog30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dialog30"
+        android:layout_marginTop="@dimen/_24dp"/>
 </LinearLayout>

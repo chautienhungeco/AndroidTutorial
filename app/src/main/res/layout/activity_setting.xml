@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_home"
-    tools:context=".DemoSettingActivity">
+    tools:context=".present.SettingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/_16dp">
+        android:paddingTop="@dimen/_16dp"
+        android:paddingBottom="@dimen/_10dp">
 
         <TextView
             style="@style/TextCustomBold"

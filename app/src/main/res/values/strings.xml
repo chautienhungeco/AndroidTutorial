@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Android Tutorial</string>
     <string name="number_2">Number 2</string>
@@ -13,12 +14,12 @@
     <string name="out_message_string">Thông báo trả về</string>
     <string name="select_picture_string">Chọn ảnh đại diện</string>
     <string name="name_string">Họ tên: [Chưa cập nhật]</string>
-    <string name="date_string">Ngày sinh: [Chưa cập nhật</string>
+    <string name="date_string">Ngày sinh: [Chưa cập nhật]</string>
     <string name="check_launch_mode">Check Launch Mode</string>
     <string name="send_data_string">MÀN HÌNH GỬI DỮ LIỆU</string>
     <string name="receive_data_string">GỬI DỮ LIỆU SANG MÀN HÌNH NHẬN</string>
     <string name="data_receive_string">MÀN HÌNH NHẬN DỮ LIỆU</string>
-    <string name="show_data_string">Nội dung nhận được sẽ hiển thị ở đây...\n\n</string>
+    <string name="show_data_string">Nội dung nhận được sẽ hiển thị ở đây...&#10;&#10;</string>
     <string name="back_to_send_data_screen_string">QUAY LẠI MÀN HÌNH GỬI</string>
     <string name="map_live_string">Map Live</string>
     <string name="string_live">LIVE</string>
@@ -50,4 +51,30 @@
     <string name="evaluate">Đánh giá</string>
     <string name="version">Phiên bản</string>
     <string name="mail">hungeco@gamil.com</string>
+    <string name="a">A</string>
+    <string name="name_hung">Anh Hưng</string>
+    <string name="add_new_contact">Tạo người liên hệ mới</string>
+    <string name="love">Yêu thích</string>
+    <string name="phone_book">Danh Bạ</string>
+
+    <!-- ĐÃ SỬA CHUẨN 100% -->
+    <string name="string_policy"><![CDATA[
+By continuing you agree to our <b><u>Terms</u></b> and <b><u>Privacy policies</u></b>.&#10;
+• Subscription gives you access to V9Compress's premium features, all ads will be removed.&#10;
+• Subscription plans are automatically renewed and can be canceled anytime in Subscriptions on Google Play.&#10;
+• You will not be charged if subscription is canceled before trial period ends.&#10;
+• Subscription is not required to use V9Compress
+]]></string>
+
+    <string name="optimize_storage">Optimize Storage, Get Space</string>
+    <string name="_899_week"><strike>\$8.99</strike></string>
+    <string name="off_50">OFF 50%</string>
+    <string name="_399_week">\$3.99/week</string>
+    <string name="claim_offer">CLAIM OFFER</string>
+    <string name="description_claim">\$3.99 for first week then \$8.99 next week. Billed weekly, cancel anytime.</string>
+    <string name="week"><strike>/week</strike></string>
+    <string name="subtitle">Faster compress made simple</string>
+    <string name="_30">30%</string>
+    <string name="trial3day">Try 3 days for FREE, then 8.99\$ per&#10;week. Auto renew, cancel anytime</string>
+    <string name="btn_claim_offer">CLAIM OFFER</string>
 </resources>
