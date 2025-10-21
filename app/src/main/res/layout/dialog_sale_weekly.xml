@@ -28,8 +28,7 @@
         android:layout_marginBottom="@dimen/_14sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -45,22 +44,13 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgBackground"
                 android:layout_width="match_parent"
-                android:layout_marginHorizontal="@dimen/_14sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_36sdp"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_result_paywall"
+                android:background="@drawable/bg_result_paywall"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/viewLine"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/imgBackground"
-                app:layout_constraintStart_toStartOf="@id/glVerticalLine"
-                app:layout_constraintTop_toTopOf="@id/imgBackground" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgLogoV9"
@@ -123,7 +113,7 @@
                 android:id="@+id/txtTrialOffer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_26sdp"
+                android:layout_marginRight="@dimen/_20sdp"
                 android:background="@drawable/bg_trial_offer_dark"
                 android:fontFamily="@font/funnelsans_semibold"
                 android:gravity="center"
@@ -133,16 +123,15 @@
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintEnd_toEndOf="@+id/imgBackground"
-                app:layout_constraintStart_toStartOf="@id/glVerticalLine"
-                app:layout_constraintTop_toBottomOf="@+id/txtDiscountOff" />
+                app:layout_constraintTop_toBottomOf="@+id/txtDiscountOff"
+                android:visibility="visible"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnClaimOffer"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_48sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
                 android:background="@drawable/gardient_btn_claim_offer"
                 android:fontFamily="@font/funnelsans_extrabold"
                 android:text="@string/btn_claim_offer"
@@ -150,12 +139,64 @@
                 android:textSize="@dimen/_14ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgBackground" />
+                app:layout_constraintBottom_toTopOf="@id/txtPolicy"
+                app:layout_constraintTop_toBottomOf="@id/imgBackground"
+                android:visibility="visible"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnClaimLoading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:drawableStart="@drawable/ic_loading"
+                android:paddingHorizontal="@dimen/_130sdp"
+                android:background="@drawable/gardient_btn_claim_offer"
+                android:fontFamily="@font/funnelsans_extrabold"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toTopOf="@id/txtPolicy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgBackground"
+                android:visibility="gone"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txtDetails"
+                android:id="@+id/txtNotFound30"
                 android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:fontFamily="@font/funnelsans_semibold"
+                android:gravity="center"
+                android:text="@string/not_found"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgBackground" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTryAgain30"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/funnelsans_medium"
+                android:gravity="center"
+                android:text="@string/try_again"
+                android:textColor="#FFFFFF"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtNotFound30" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_20sdp"
                 android:fontFamily="@font/funnelsans_semibold"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="@dimen/_2ssp"
@@ -168,7 +209,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnClaimOffer" />
+                app:layout_constraintTop_toBottomOf="@id/txtTryAgain30" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

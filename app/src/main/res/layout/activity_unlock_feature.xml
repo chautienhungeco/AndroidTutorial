@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F3F4"
+    tools:context=".present.UnlockFeature">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDialogContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:cardBackgroundColor="#F1F3F4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtHeaderUnlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bebasneue_regular"
+                android:text="high-quality compression"
+                android:textColor="#0E111B"
+                android:textSize="@dimen/_48ssp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgBackgroundUnlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginHorizontal= "@dimen/_12sdp"
+                android:background="@drawable/bg_unlock_quality"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtHeaderUnlock" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTrialFree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:fontFamily="@font/readexpro_variablefont_hexpwght"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_3sdp"
+                android:text="@string/title_unlock"
+                android:textColor="#0E111B"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginHorizontal="@dimen/_60sdp"
+                app:layout_constraintTop_toBottomOf="@id/imgBackgroundUnlock"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTrialFreePay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:fontFamily="@font/readexpro_variablefont_hexpwght"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_3sdp"
+                android:text="@string/title_unlock_pay"
+                android:textColor="#0E111B"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="visible"
+                android:layout_marginHorizontal="@dimen/_60sdp"
+                app:layout_constraintBottom_toTopOf="@id/btnTryFree"
+                app:layout_constraintTop_toBottomOf="@id/imgBackgroundUnlock"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTryFree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:background="@drawable/bg_btn_black"
+                android:fontFamily="@font/readexpro_bold"
+                android:text="@string/btn_try_for_free"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_14ssp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@id/txtPolicyForFree"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTrialFree" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtPolicyForFree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:fontFamily="@font/funnelsans_semibold"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="@dimen/_2ssp"
+                android:paddingHorizontal="@dimen/_18sdp"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_16sdp"
+                android:text="@string/policyOfYear"
+                android:textColor="#4D5A68"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,9 @@ import com.example.androidtutorial.R
 import com.example.androidtutorial.common.Constants
 import com.example.androidtutorial.phonebook.PhoneBookActivity
 import com.example.androidtutorial.present.Dialog30Activity
+import com.example.androidtutorial.present.Dialog30ActivityYear
 import com.example.androidtutorial.present.PayWallActivity
+import com.example.androidtutorial.present.UnlockFeature
 
 class LoginActivity : AppCompatActivity() {
 
@@ -57,6 +59,8 @@ class LoginActivity : AppCompatActivity() {
         val btnPhoneBook = findViewById<Button>(R.id.btnPhone)
         val btnPayWall = findViewById<Button>(R.id.btnPaywall)
         val btnDialog30 = findViewById<Button>(R.id.btnDialog30)
+        val btnDialog30Year = findViewById<Button>(R.id.btnDialog30Year)
+        val btnUnlockFeature = findViewById<Button>(R.id.btnUnlockFeature)
 
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
@@ -91,6 +95,16 @@ class LoginActivity : AppCompatActivity() {
         btnDialog30.setOnClickListener {
             val dialog30Intent = Intent(this, Dialog30Activity::class.java)
             startActivity(dialog30Intent)
+        }
+
+        btnDialog30Year.setOnClickListener {
+            val dialog30IntentYear = Intent(this, Dialog30ActivityYear::class.java)
+            startActivity(dialog30IntentYear)
+        }
+
+        btnUnlockFeature.setOnClickListener {
+            val unlockFeatureIntent = Intent(this, UnlockFeature::class.java)
+            startActivity(unlockFeatureIntent)
         }
     }
 

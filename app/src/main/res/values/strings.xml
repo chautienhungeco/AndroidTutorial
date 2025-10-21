@@ -72,8 +72,21 @@
     <string name="week"><strike>/week</strike></string>
     <string name="subtitle">Faster compress made simple</string>
     <string name="_30">30%</string>
-    <string name="trial3day">Try 3 days for FREE, then 8.99\$ per&#10;week. Auto renew, cancel anytime</string>
+    <string name="trial3day">Try 3 days for FREE, then 8.99\$ per \n
+        week. Auto renew, cancel anytime</string>
     <string name="btn_claim_offer">CLAIM OFFER</string>
     <string name="not_found">We couldn’t load the infomation</string>
     <string name="try_again"><u>Try again</u></string>
+
+    <string name="policyOfYear">
+        By continuing you agree to our <b><u>Terms</u></b> and <b><u>Privacy policies</u></b>. \n
+        \u2022 Subscription gives you access to V9Compress\'s premium features, all ads will be removed.\n
+        \u2022 Subscription plans are automatically renewed and can be canceled anytime in Subscriptions on Google Play.\n
+        \u2022 You will not be charged if subscription is canceled before trial period ends.\n
+        \u2022 Subscription is not required to use V9Compress
+
+    </string>
+    <string name="title_unlock">$14.99/year after free trial ends. Auto renew, cancel anytime</string>
+    <string name="title_unlock_pay">$14.99/year\n Auto renew, cancel anytime</string>
+    <string name="btn_try_for_free">Try for free</string>
 </resources>

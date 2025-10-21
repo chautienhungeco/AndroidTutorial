@@ -82,4 +82,18 @@
         android:layout_height="wrap_content"
         android:text="Dialog30"
         android:layout_marginTop="@dimen/_24dp"/>
+
+    <Button
+        android:id="@+id/btnDialog30Year"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/_24dp"
+        android:text="Dialog30Year" />
+
+    <Button
+        android:id="@+id/btnUnlockFeature"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/_24dp"
+        android:text="Unlock Feature" />
 </LinearLayout>
