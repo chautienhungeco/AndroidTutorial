@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/username_hint"
         android:inputType="text"
-        android:autofillHints="" />
+        android:autofillHints="name" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -30,14 +30,14 @@
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:layout_marginTop="@dimen/_12dp"
-        android:autofillHints="" />
+        android:autofillHints="password" />
 
     <TextView
         android:id="@+id/tvError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FF0000"
-        android:text=""
+        android:text="1"
         android:layout_marginTop="@dimen/_12dp"/>
 
     <Button
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text=""
+        android:text="2"
         android:layout_marginTop="@dimen/_24sp"/>
 
     <Button

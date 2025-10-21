@@ -20,10 +20,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvDialogContainer"
-        android:layout_width="@dimen/_280sdp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:cardBackgroundColor="@color/dialog_background_dim"
         app:cardCornerRadius="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_72sdp"
+        android:layout_marginBottom="@dimen/_14sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +45,10 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgBackground"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_36sdp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:src="@drawable/bg_result_paywall"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,24 +66,24 @@
                 android:id="@+id/imgLogoV9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_33sdp"
                 android:adjustViewBounds="true"
+                android:layout_marginRight="@dimen/_13sdp"
                 android:src="@drawable/ic_v9_compress_pro_logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/glVerticalLine"
+                app:layout_constraintEnd_toEndOf="@+id/imgBackground"
                 app:layout_constraintTop_toTopOf="@id/imgBackground" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_14sdp"
                 android:fontFamily="@font/funnelsans_extrabold"
                 android:text="@string/subtitle"
                 android:textColor="#EAF5F8"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/glVerticalLine"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@+id/imgBackground"
                 app:layout_constraintTop_toBottomOf="@id/imgLogoV9" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -86,30 +91,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/funnelsans_extrabold"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:shadowColor="#40000000"
+                android:shadowDx="0"
+                android:shadowDy="3"
+                android:shadowRadius="6"
                 android:text="@string/_30"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/_70ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/glVerticalLine"
+                android:textSize="@dimen/_60ssp"
+                app:layout_constraintEnd_toEndOf="@+id/imgBackground"
                 app:layout_constraintTop_toBottomOf="@id/txtSubtitle" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtDiscountOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_15sdp"
                 android:fontFamily="@font/funnelsans_extrabold"
+                android:shadowColor="#40000000"
+                android:shadowDx="0"
+                android:shadowDy="3"
+                android:shadowRadius="6"
                 android:text="OFF"
                 android:textColor="#EEEEF2"
                 android:textSize="@dimen/_45ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/glVerticalLine"
+                app:layout_constraintEnd_toEndOf="@+id/imgBackground"
                 app:layout_constraintTop_toBottomOf="@id/txtDiscountPersen" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtTrialOffer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_24sdp"
+                android:layout_marginHorizontal="@dimen/_26sdp"
                 android:background="@drawable/bg_trial_offer_dark"
                 android:fontFamily="@font/funnelsans_semibold"
                 android:gravity="center"
@@ -118,12 +132,9 @@
                 android:text="@string/trial3day"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_10ssp"
-                app:layout_constraintBottom_toBottomOf="@id/imgBackground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.2"
-                app:layout_constraintStart_toStartOf="@+id/glVerticalLine"
-                app:layout_constraintTop_toBottomOf="@id/txtDiscountOff"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintEnd_toEndOf="@+id/imgBackground"
+                app:layout_constraintStart_toStartOf="@id/glVerticalLine"
+                app:layout_constraintTop_toBottomOf="@+id/txtDiscountOff" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnClaimOffer"

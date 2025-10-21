@@ -56,16 +56,13 @@
     <string name="add_new_contact">Tạo người liên hệ mới</string>
     <string name="love">Yêu thích</string>
     <string name="phone_book">Danh Bạ</string>
-
-    <!-- ĐÃ SỬA CHUẨN 100% -->
-    <string name="string_policy"><![CDATA[
-By continuing you agree to our <b><u>Terms</u></b> and <b><u>Privacy policies</u></b>.&#10;
-• Subscription gives you access to V9Compress's premium features, all ads will be removed.&#10;
-• Subscription plans are automatically renewed and can be canceled anytime in Subscriptions on Google Play.&#10;
-• You will not be charged if subscription is canceled before trial period ends.&#10;
-• Subscription is not required to use V9Compress
-]]></string>
-
+    <string name="string_policy">
+        By continuing, you agree to our <b><u>Terms</u></b> and <b><u>Privacy Policy</u></b>.\n
+      \u2022  Subscription gives you access to V9Compress\'s premium features and removes all ads.\n
+    \u2022 Plans auto-renew and can be canceled anytime via Google Play Subscriptions.\n
+    \u2022 You will not be charged if you cancel before the trial period ends.\n
+    \u2022 Subscription is not required to use V9Compress.
+    </string>
     <string name="optimize_storage">Optimize Storage, Get Space</string>
     <string name="_899_week"><strike>\$8.99</strike></string>
     <string name="off_50">OFF 50%</string>
@@ -77,4 +74,6 @@ By continuing you agree to our <b><u>Terms</u></b> and <b><u>Privacy policies</u
     <string name="_30">30%</string>
     <string name="trial3day">Try 3 days for FREE, then 8.99\$ per&#10;week. Auto renew, cancel anytime</string>
     <string name="btn_claim_offer">CLAIM OFFER</string>
+    <string name="not_found">We couldn’t load the infomation</string>
+    <string name="try_again"><u>Try again</u></string>
 </resources>
