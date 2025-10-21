@@ -89,4 +89,10 @@
     <string name="title_unlock">$14.99/year after free trial ends. Auto renew, cancel anytime</string>
     <string name="title_unlock_pay">$14.99/year\n Auto renew, cancel anytime</string>
     <string name="btn_try_for_free">Try for free</string>
+    <string name="txt_continue">Continue</string>
+    <string name="shrink_size">SHRINK SIZE\nKEEP QUALITY</string>
+    <string name="keep_quality">KEEP QUALITY</string>
+    <string name="price_title">$14.99/year after free trial ends.\n Auto renew, Cancel anytime</string>
+    <string name="free_trial_enabled">Free trial enabled</string>
+    <string name="smarter_storage_made">SMARTER STORAGE MADE\nAFFORDABLE</string>
 </resources>

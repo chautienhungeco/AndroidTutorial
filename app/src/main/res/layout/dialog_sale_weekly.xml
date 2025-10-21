@@ -22,10 +22,10 @@
         android:id="@+id/cvDialogContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="@color/dialog_background_dim"
-        app:cardCornerRadius="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_72sdp"
         android:layout_marginBottom="@dimen/_14sdp"
+        app:cardBackgroundColor="@color/dialog_background_dim"
+        app:cardCornerRadius="@dimen/_12sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -57,8 +57,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_33sdp"
-                android:adjustViewBounds="true"
                 android:layout_marginRight="@dimen/_13sdp"
+                android:adjustViewBounds="true"
                 android:src="@drawable/ic_v9_compress_pro_logo"
                 app:layout_constraintEnd_toEndOf="@+id/imgBackground"
                 app:layout_constraintTop_toTopOf="@id/imgBackground" />
@@ -80,9 +80,9 @@
                 android:id="@+id/txtDiscountPersen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/funnelsans_extrabold"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginRight="@dimen/_15sdp"
+                android:fontFamily="@font/funnelsans_extrabold"
                 android:shadowColor="#40000000"
                 android:shadowDx="0"
                 android:shadowDy="3"
@@ -122,9 +122,9 @@
                 android:text="@string/trial3day"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_10ssp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="@+id/imgBackground"
-                app:layout_constraintTop_toBottomOf="@+id/txtDiscountOff"
-                android:visibility="visible"/>
+                app:layout_constraintTop_toBottomOf="@+id/txtDiscountOff" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnClaimOffer"
@@ -137,11 +137,11 @@
                 android:text="@string/btn_claim_offer"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_14ssp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@id/txtPolicy"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/txtPolicy"
-                app:layout_constraintTop_toBottomOf="@id/imgBackground"
-                android:visibility="visible"/>
+                app:layout_constraintTop_toBottomOf="@id/imgBackground" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnClaimLoading"
@@ -150,30 +150,30 @@
                 android:layout_marginHorizontal="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:layout_marginBottom="@dimen/_8sdp"
-                android:drawableStart="@drawable/ic_loading"
-                android:paddingHorizontal="@dimen/_130sdp"
                 android:background="@drawable/gardient_btn_claim_offer"
+                android:drawableStart="@drawable/ic_loading"
                 android:fontFamily="@font/funnelsans_extrabold"
+                android:paddingHorizontal="@dimen/_130sdp"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_14ssp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@id/txtPolicy"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgBackground"
-                android:visibility="gone"/>
+                app:layout_constraintTop_toBottomOf="@id/imgBackground" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtNotFound30"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:fontFamily="@font/funnelsans_semibold"
                 android:gravity="center"
                 android:text="@string/not_found"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/_14sdp"
                 android:visibility="gone"
-                android:layout_marginTop="@dimen/_20sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgBackground" />

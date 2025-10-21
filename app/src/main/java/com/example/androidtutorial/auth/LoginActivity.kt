@@ -17,6 +17,7 @@ import com.example.androidtutorial.phonebook.PhoneBookActivity
 import com.example.androidtutorial.present.Dialog30Activity
 import com.example.androidtutorial.present.Dialog30ActivityYear
 import com.example.androidtutorial.present.PayWallActivity
+import com.example.androidtutorial.present.PaywallOnboard
 import com.example.androidtutorial.present.UnlockFeature
 
 class LoginActivity : AppCompatActivity() {
@@ -61,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
         val btnDialog30 = findViewById<Button>(R.id.btnDialog30)
         val btnDialog30Year = findViewById<Button>(R.id.btnDialog30Year)
         val btnUnlockFeature = findViewById<Button>(R.id.btnUnlockFeature)
+        val btnPaywallOnboard = findViewById<Button>(R.id.btnPaywallOnboard)
 
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
@@ -105,6 +107,11 @@ class LoginActivity : AppCompatActivity() {
         btnUnlockFeature.setOnClickListener {
             val unlockFeatureIntent = Intent(this, UnlockFeature::class.java)
             startActivity(unlockFeatureIntent)
+        }
+
+        btnPaywallOnboard.setOnClickListener {
+            val paywallOnboardIntent = Intent(this, PaywallOnboard::class.java)
+            startActivity(paywallOnboardIntent)
         }
     }
 
