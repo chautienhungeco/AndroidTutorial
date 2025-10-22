@@ -68,6 +68,8 @@
             android:exported="false"/>
         <activity android:name=".present.PaywallOnboard"
             android:exported="false"/>
+        <activity android:name=".present.FocusYearlyPrice"
+            android:exported="false"/>
     </application>
 
 </manifest>
