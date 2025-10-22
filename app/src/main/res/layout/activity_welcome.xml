@@ -18,7 +18,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view_tag"
-        android:name="com.example.androidtutorial.mainui.profile.UserProfileFragment"
+        android:name="com.example.androidtutorialhungeco.mainui.profile.UserProfileFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_24dp" />

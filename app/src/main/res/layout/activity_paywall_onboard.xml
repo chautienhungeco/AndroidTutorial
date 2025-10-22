@@ -78,7 +78,7 @@
             android:gravity="center"
             android:text="@string/shrink_size"
             android:textColor="#0F1E47"
-            android:textSize="@dimen/_28ssp"
+            android:textSize="@dimen/_26ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toggleContainer" />
@@ -87,7 +87,7 @@
             android:id="@+id/imgBackgroundOnboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:src="@drawable/bg_paywall_onboard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
