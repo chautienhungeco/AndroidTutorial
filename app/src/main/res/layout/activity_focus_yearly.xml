@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,10 +28,10 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:background="@android:color/transparent"
+                android:contentDescription="@null"
                 android:src="@drawable/ic_close_btn"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@null" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -40,12 +39,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clBottomSection"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
         android:background="@drawable/bg_focus"
         android:paddingBottom="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@id/cvTopSection"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="-20dp">
+        app:layout_constraintTop_toBottomOf="@id/cvTopSection">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtTitle"
@@ -74,8 +73,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/_10sdp"
-                android:background="@drawable/bg_free_trial_border">
+                android:background="@drawable/bg_free_trial_border"
+                android:paddingBottom="@dimen/_10sdp">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txtSaved"
@@ -83,20 +82,20 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_rounded_purple"
                     android:fontFamily="@font/readexpro_bold"
-                    android:text="Saved 92%"
                     android:gravity="center"
+                    android:text="Saved 92%"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_12ssp"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txtYearlyPlan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Yearly plan"
                     android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:fontFamily="@font/readexpro_bold"
+                    android:text="Yearly plan"
                     android:textColor="#25104A"
                     android:textSize="@dimen/_14ssp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -106,12 +105,12 @@
                     android:id="@+id/txtYearlyPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_14sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:fontFamily="@font/readexpro_regular"
                     android:text="\$19.99/year"
                     android:textColor="#25104A"
                     android:textSize="@dimen/_12ssp"
-                    android:layout_marginRight="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_14sdp"
-                    android:fontFamily="@font/readexpro_regular"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/txtSaved" />
 
@@ -119,8 +118,8 @@
                     android:id="@+id/txtYearlyWeeklyEquivalent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Only $0.412 per week"
                     android:layout_marginLeft="@dimen/_8sdp"
+                    android:text="Only $0.412 per week"
                     android:textColor="#25104A"
                     android:textSize="@dimen/_10ssp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -150,10 +149,10 @@
                     android:id="@+id/txtWeeklyPlan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/readexpro_bold"
                     android:text="Weekly Plan"
                     android:textColor="#25104A"
                     android:textSize="@dimen/_14ssp"
-                    android:fontFamily="@font/readexpro_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -162,8 +161,8 @@
                     android:id="@+id/txtWeeklyPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="\$4.99/week"
                     android:fontFamily="@font/readexpro_regular"
+                    android:text="\$4.99/week"
                     android:textColor="#25104A"
                     android:textSize="@dimen/_12ssp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -178,10 +177,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/readexpro_regular"
             android:gravity="center"
             android:text="\$19.99/year after free trial ends.\n Auto renew, cancel anytime"
             android:textColor="#25104A"
-            android:fontFamily="@font/readexpro_regular"
             android:textSize="@dimen/_10ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -193,10 +192,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
             android:background="@drawable/bg_btn_blueray"
+            android:fontFamily="@font/readexpro_bold"
             android:minHeight="@dimen/_40sdp"
             android:text="@string/btn_try_for_free"
             android:textColor="@android:color/white"
-            android:fontFamily="@font/readexpro_bold"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintEnd_toEndOf="@id/cvWeeklyPlan"
             app:layout_constraintStart_toStartOf="@id/cvWeeklyPlan"
@@ -207,12 +206,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
+            android:drawableLeft="@drawable/ic_security"
+            android:fontFamily="@font/readexpro_regular"
             android:gravity="center"
             android:text="   3-day free trial enabled"
             android:textColor="#006C43"
-            android:fontFamily="@font/readexpro_regular"
             android:textSize="@dimen/_10ssp"
-            android:drawableLeft="@drawable/ic_security"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnTryForFree" />
@@ -221,14 +220,14 @@
             android:id="@+id/txtLegalText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_8sdp"
             android:layout_marginHorizontal="@dimen/_16sdp"
+            android:fontFamily="@font/readexpro_regular"
+            android:gravity="center"
             android:lineSpacingExtra="@dimen/_2sdp"
+            android:paddingHorizontal="@dimen/_8sdp"
             android:text="@string/policy_focus_year"
             android:textColor="#4D5A68"
             android:textSize="@dimen/_8ssp"
-            android:fontFamily="@font/readexpro_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtFreeTrialEnabled" />
