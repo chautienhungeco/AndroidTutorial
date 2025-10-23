@@ -42,7 +42,6 @@
         app:layout_constraintStart_toStartOf="@id/viewContentBg"
         app:layout_constraintTop_toTopOf="@id/viewContentBg" />
 
-    <!-- 4. Logo, Tiêu đề phụ và Giảm giá (Vị trí không đổi) -->
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgLogoV9"
         android:layout_width="wrap_content"
@@ -99,7 +98,7 @@
         android:text="@string/trial3day"
         android:textColor="@android:color/white"
         android:textSize="@dimen/_10ssp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/imgBackground"
         app:layout_constraintTop_toBottomOf="@+id/txtDiscountOff" />
 
@@ -139,12 +138,14 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:background="@drawable/gardient_btn_claim_offer"
         android:fontFamily="@font/funnelsans_extrabold"
         android:text="@string/btn_claim_offer"
         android:textColor="@android:color/white"
         android:textSize="@dimen/_14ssp"
         android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/scrollViewPolicy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtTryAgain30" /> <!-- Ràng buộc lại -->
@@ -154,15 +155,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         android:background="@drawable/gardient_btn_claim_offer"
         android:drawableStart="@drawable/ic_loading"
         android:fontFamily="@font/funnelsans_extrabold"
         android:paddingHorizontal="@dimen/_130sdp"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/_14ssp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/scrollViewPolicy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

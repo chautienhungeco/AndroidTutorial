@@ -7,40 +7,48 @@
     android:background="#90000000"
     tools:context=".present.Dialog30ActivityYear">
 
-    <ImageButton
-        android:id="@+id/btnCloseYear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_14sdp"
-        android:layout_marginTop="@dimen/_36sdp"
-        android:background="@drawable/ic_close_btn_blue"
-        android:elevation="@dimen/_4sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvDialogContainer"
+    <ScrollView
+        android:id="@+id/scrollViewMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="@color/dialog_background_dim"
+        android:fillViewport="true"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@android:color/white"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cstBackground"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="@color/dialog_background_dim"
+            android:paddingBottom="@dimen/_20sdp">
+
+            <ImageButton
+                android:id="@+id/btnCloseYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_36sdp"
+                android:background="@drawable/ic_close_btn_blue"
+                android:elevation="@dimen/_4sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgBackgroundYear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_110sdp"
-                android:layout_marginBottom="@dimen/_300sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:background="@drawable/img_dialog_year"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                app:layout_constraintDimensionRatio="H,1:1.2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +66,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtSubtitleYear"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_36sdp"
                 android:layout_marginTop="@dimen/_8sdp"
@@ -70,6 +78,8 @@
                 android:text="@string/subtitle"
                 android:textColor="#EAF5F8"
                 android:textSize="@dimen/_14ssp"
+                android:maxLines="2"
+                android:ellipsize="end"
                 app:layout_constraintEnd_toEndOf="@+id/imgBackgroundYear"
                 app:layout_constraintStart_toStartOf="@id/imgBackgroundYear"
                 app:layout_constraintTop_toBottomOf="@id/imgLogoV9Year" />
@@ -112,14 +122,14 @@
                 android:text="@string/trial3day"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_10ssp"
-                android:visibility="visible"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imgBackgroundYear" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnClaimOfferYear"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_8sdp"
@@ -128,49 +138,84 @@
                 android:text="@string/btn_claim_offer"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_14ssp"
-                android:visibility="visible"
+                android:visibility="invisible"
+                android:minHeight="@dimen/_48sdp"
+                android:stateListAnimator="@null"
+                android:elevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtTrialOfferYear" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLoadClaimOfferYear"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/gardient_claim_offer_year"
                 android:drawableRight="@drawable/ic_loading"
-                android:fontFamily="@font/funnelsans_extrabold"
                 android:paddingHorizontal="@dimen/_125sdp"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_14ssp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/txtPolicy"
+                android:visibility="invisible"
+                android:minHeight="@dimen/_48sdp"
+                android:stateListAnimator="@null"
+                android:elevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgBackgroundYear" />
+                app:layout_constraintTop_toBottomOf="@id/txtTrialOfferYear" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtNotFoundYearly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/funnelsans_semibold"
+                android:gravity="center"
+                android:text="@string/not_found"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgBackgroundYear" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTryAgain30Year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/funnelsans_medium"
+                android:gravity="center"
+                android:text="@string/try_again"
+                android:textColor="#FFFFFF"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtNotFoundYearly" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txtPolicy"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:fontFamily="@font/funnelsans_semibold"
+                android:layout_marginHorizontal="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:fontFamily="@font/funnelsans_regular"
                 android:gravity="center_horizontal"
+                android:paddingHorizontal="@dimen/_14sdp"
                 android:lineSpacingExtra="@dimen/_2ssp"
-                android:paddingHorizontal="@dimen/_18sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_16sdp"
-                android:text="@string/policyOfYear"
-                android:textColor="#4D5A68"
+                android:text="@string/policy_yearly"
+                android:textColor="#EAF5F8"
                 android:textSize="@dimen/_8ssp"
+                android:maxLines="10"
+                android:ellipsize="end"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnClaimOfferYear" />
+                app:layout_constraintTop_toBottomOf="@id/btnClaimOfferYear" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

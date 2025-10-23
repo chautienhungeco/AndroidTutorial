@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.androidtutorialhungeco.R
 import com.example.androidtutorialhungeco.databinding.ActivityUnlockFeatureBinding
 
-class UnlockFeature : AppCompatActivity(){
+class UnlockFeature : AppCompatActivity() {
 
     private lateinit var binding: ActivityUnlockFeatureBinding
 
@@ -17,43 +17,81 @@ class UnlockFeature : AppCompatActivity(){
         binding = ActivityUnlockFeatureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        showTrialFreeState()
+        showLoadingSate()
     }
 
-    private fun showTrialFreeState() {
+    private fun showLoadingSate() {
+        binding.txtTrialFree.visibility = View.INVISIBLE
+        binding.btnTryFree.visibility = View.INVISIBLE
 
-        binding.txtTrialFree.visibility = View.VISIBLE
-        binding.btnTryFree.visibility = View.VISIBLE
-
-        binding.txtTrialFreePay.visibility = View.GONE
-        binding.btnContinue.visibility = View.GONE
-        binding.btnLoadingContinue.visibility = View.GONE
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            showLoadingState()
-        }, 3000)
-    }
-
-    private fun showLoadingState() {
-        binding.txtTrialFree.visibility = View.GONE
-        binding.btnTryFree.visibility = View.GONE
-
-        binding.txtTrialFreePay.visibility = View.GONE
-        binding.btnContinue.visibility = View.GONE
+        binding.txtTrialFreePay.visibility = View.INVISIBLE
+        binding.btnContinue.visibility = View.INVISIBLE
 
         binding.btnLoadingContinue.visibility = View.VISIBLE
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            showPayState()
-        }, 3000)
+
+        binding.btnLoadingContinue.setOnClickListener {
+            showTrailFreeStae()
+        }
     }
 
-    private fun showPayState() {
-        binding.txtTrialFree.visibility = View.GONE
-        binding.btnTryFree.visibility = View.GONE
-        binding.btnLoadingContinue.visibility = View.GONE
+    private fun showTrailFreeStae(){
+        binding.txtTrialFree.visibility = View.INVISIBLE
+        binding.btnTryFree.visibility = View.INVISIBLE
+        binding.btnLoadingContinue.visibility = View.INVISIBLE
 
         binding.txtTrialFreePay.visibility = View.VISIBLE
         binding.btnContinue.visibility = View.VISIBLE
+
+        binding.btnContinue.setOnClickListener{
+            showPayState()
+        }
+    }
+    private fun showPayState(){
+        binding.txtTrialFree.visibility = View.VISIBLE
+        binding.btnTryFree.visibility = View.VISIBLE
+
+        binding.txtTrialFreePay.visibility = View.INVISIBLE
+        binding.btnContinue.visibility = View.INVISIBLE
+        binding.btnLoadingContinue.visibility = View.INVISIBLE
     }
 }
+
+
+//    private fun showTrialFreeState() {
+//
+//        binding.txtTrialFree.visibility = View.VISIBLE
+//        binding.btnTryFree.visibility = View.VISIBLE
+//
+//        binding.txtTrialFreePay.visibility = View.INVISIBLE
+//        binding.btnContinue.visibility = View.INVISIBLE
+//        binding.btnLoadingContinue.visibility = View.INVISIBLE
+//
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            showLoadingState()
+//        }, 3000)
+//    }
+//
+//    private fun showLoadingState() {
+//        binding.txtTrialFree.visibility = View.INVISIBLE
+//        binding.btnTryFree.visibility = View.INVISIBLE
+//
+//        binding.txtTrialFreePay.visibility = View.INVISIBLE
+//        binding.btnContinue.visibility = View.INVISIBLE
+//
+//        binding.btnLoadingContinue.visibility = View.VISIBLE
+//
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            showPayState()
+//        }, 3000)
+//    }
+//
+//    private fun showPayState() {
+//        binding.txtTrialFree.visibility = View.INVISIBLE
+//        binding.btnTryFree.visibility = View.INVISIBLE
+//        binding.btnLoadingContinue.visibility = View.INVISIBLE
+//
+//        binding.txtTrialFreePay.visibility = View.VISIBLE
+//        binding.btnContinue.visibility = View.VISIBLE
+//    }
+//}

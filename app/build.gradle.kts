@@ -36,7 +36,7 @@ android {
         jvmTarget = "1.8"
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -54,4 +54,7 @@ dependencies {
     implementation("com.intuit.ssp:ssp-android:1.1.1")
     implementation("com.intuit.sdp:sdp-android:1.1.1")
     implementation("com.airbnb.android:lottie:5.2.0")
+
+    val billing_version = "8.0.0"
+    implementation("com.android.billingclient:billing:$billing_version")
 }
