@@ -46,8 +46,28 @@
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/_18sdp"
                 android:paddingVertical="@dimen/_2sdp"
-                android:text="Yearly"
+                android:text="@string/yearly"
                 android:textColor="#0F1E47"
+                android:visibility="invisible"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/weeklyToggle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/yearlyToggleNon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="@dimen/_2sdp"
+                android:background="@drawable/bg_weekly"
+                android:fontFamily="@font/readexpro_regular"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_18sdp"
+                android:paddingVertical="@dimen/_2sdp"
+                android:text="@string/yearly"
+                android:textColor="#EAF5F8"
+                android:visibility="visible"
                 android:textSize="@dimen/_14ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/weeklyToggle"
@@ -60,9 +80,30 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/readexpro_regular"
                 android:gravity="center"
-                android:text="Weekly"
+                android:text="@string/weekly"
+                android:paddingHorizontal="@dimen/_18sdp"
+                android:paddingVertical="@dimen/_2sdp"
                 android:textColor="#EAF5F8"
                 android:textSize="@dimen/_14ssp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/yearlyToggle"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/weeklyToggleNon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/readexpro_regular"
+                android:gravity="center"
+                android:text="@string/weekly"
+                android:paddingHorizontal="@dimen/_18sdp"
+                android:paddingVertical="@dimen/_2sdp"
+                android:textColor="#0F1E47"
+                android:textSize="@dimen/_14ssp"
+                android:background="@drawable/bg_yearly"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/yearlyToggle"
@@ -95,7 +136,7 @@
             tools:ignore="ContentDescription" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtPrice"
+            android:id="@+id/txtPriceYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16sdp"
@@ -103,11 +144,56 @@
             android:text="@string/price_title"
             android:textAlignment="center"
             android:textColor="#0F1E47"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgBackgroundOnboard" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPriceWeekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/readexpro_regular"
+            android:text="@string/titlePriceWeekly"
+            android:textAlignment="center"
+            android:textColor="#0F1E47"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBackgroundOnboard" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtResultYearly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/readexpro_regular"
+            android:text="@string/txtResultYearly"
+            android:textAlignment="center"
+            android:textColor="#0F1E47"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBackgroundOnboard" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtResultWeekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/readexpro_regular"
+            android:text="@string/txtResultWeekly"
+            android:textAlignment="center"
+            android:textColor="#0F1E47"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBackgroundOnboard" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/freeTrialContainer"
             android:layout_width="match_parent"
@@ -116,10 +202,10 @@
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/bg_free_trial_border"
             android:paddingHorizontal="@dimen/_16sdp"
-            android:paddingVertical="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_6sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPrice">
+            app:layout_constraintTop_toBottomOf="@+id/txtPriceYear">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -152,7 +238,41 @@
             android:text="@string/btn_try_for_free"
             android:textColor="@color/white"
             android:textSize="@dimen/_16ssp"
-            android:textStyle="bold"
+            android:visibility="invisible"
+            android:fontFamily="@font/readexpro_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/freeTrialContainer" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/bg_btn_blue_dam"
+            android:text="@string/txt_continue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="visible"
+            android:fontFamily="@font/readexpro_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/freeTrialContainer" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinueLoad"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/bg_btn_gray"
+            android:drawableRight="@drawable/ic_loading"
+            android:paddingHorizontal="@dimen/_125sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            android:visibility="visible"
+            android:fontFamily="@font/readexpro_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/freeTrialContainer" />

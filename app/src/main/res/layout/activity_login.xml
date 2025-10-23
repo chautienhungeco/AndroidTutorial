@@ -16,6 +16,7 @@
         android:layout_marginBottom="@dimen/_32dp"/>
 
     <EditText
+        android:visibility="gone"
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,6 +26,7 @@
 
     <EditText
         android:id="@+id/etPassword"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password_hint"
@@ -46,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_login_string"
+        android:visibility="gone"
         android:layout_marginTop="@dimen/_24dp"/>
 
     <TextView
