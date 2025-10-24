@@ -55,6 +55,8 @@ dependencies {
     implementation("com.intuit.sdp:sdp-android:1.1.1")
     implementation("com.airbnb.android:lottie:5.2.0")
 
-    val billing_version = "8.0.0"
+    val billing_version = "7.0.0"
     implementation("com.android.billingclient:billing:$billing_version")
+    implementation("com.android.billingclient:billing-ktx:$billing_version")
+
 }

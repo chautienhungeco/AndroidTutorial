@@ -57,6 +57,7 @@ class PayWallActivity: AppCompatActivity(){
     private fun showLoadingState() {
         binding.txtNotFound.visibility = View.INVISIBLE
         binding.txtTryAgain.visibility = View.INVISIBLE
+        binding.btnClaimOffer.visibility = View.INVISIBLE
 
         binding.viewSubContainer.visibility = View.VISIBLE
         binding.btnLoading.visibility = View.VISIBLE
