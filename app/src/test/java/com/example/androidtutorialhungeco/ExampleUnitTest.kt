@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco
+package com.example.com.eco.musicplayer.audioplayer.music
 
 import org.junit.Test
 

@@ -1,12 +1,12 @@
-package com.example.androidtutorialhungeco.simpletransferdata
+package com.eco.musicplayer.audioplayer.music.simpletransferdata
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidtutorialhungeco.R
-import com.example.androidtutorialhungeco.common.Constants
-import com.example.androidtutorialhungeco.common.DataInformation
+import com.eco.musicplayer.audioplayer.music.R
+import com.eco.musicplayer.audioplayer.music.common.Constants
+import com.eco.musicplayer.audioplayer.music.common.DataInformation
 
 class TransferReceiveActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {

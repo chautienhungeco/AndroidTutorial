@@ -1,9 +1,9 @@
-package com.example.androidtutorialhungeco.appinit
+package com.eco.musicplayer.audioplayer.music.appinit
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.androidtutorialhungeco.auth.LoginActivity
+import com.eco.musicplayer.audioplayer.music.auth.LoginActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

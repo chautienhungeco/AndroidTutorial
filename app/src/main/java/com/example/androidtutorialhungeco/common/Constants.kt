@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.common
+package com.eco.musicplayer.audioplayer.music.common
 
 object Constants {
     const val EXTRA_USERNAME = "extra_username"

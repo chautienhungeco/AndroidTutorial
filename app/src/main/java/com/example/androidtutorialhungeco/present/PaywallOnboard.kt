@@ -1,12 +1,12 @@
-package com.example.androidtutorialhungeco.present
+package com.eco.musicplayer.audioplayer.music.present
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidtutorialhungeco.R
-import com.example.androidtutorialhungeco.databinding.ActivityPaywallOnboardBinding
+import com.eco.musicplayer.audioplayer.music.R
+import com.eco.musicplayer.audioplayer.music.databinding.ActivityPaywallOnboardBinding
 
 //trạng thái ở màn hình chính
 private enum class ScreenState {

@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.mainui
+package com.eco.musicplayer.audioplayer.music.mainui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import com.example.androidtutorialhungeco.R
-import com.example.androidtutorialhungeco.launchmode.SingleInstanceActivity
-import com.example.androidtutorialhungeco.launchmode.SingleTaskActivity
-import com.example.androidtutorialhungeco.launchmode.SingleTopActivity
-import com.example.androidtutorialhungeco.launchmode.StandardActivity
+import com.eco.musicplayer.audioplayer.music.R
+import com.eco.musicplayer.audioplayer.music.launchmode.SingleInstanceActivity
+import com.eco.musicplayer.audioplayer.music.launchmode.SingleTaskActivity
+import com.eco.musicplayer.audioplayer.music.launchmode.SingleTopActivity
+import com.eco.musicplayer.audioplayer.music.launchmode.StandardActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

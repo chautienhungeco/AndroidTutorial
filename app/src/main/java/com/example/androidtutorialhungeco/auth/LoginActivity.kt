@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.auth
+package com.eco.musicplayer.audioplayer.music.auth
 
 import android.app.Activity
 import android.content.Intent
@@ -10,16 +10,16 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.androidtutorialhungeco.present.HomeEarthMapActivity
-import com.example.androidtutorialhungeco.R
-import com.example.androidtutorialhungeco.common.Constants
-import com.example.androidtutorialhungeco.phonebook.PhoneBookActivity
-import com.example.androidtutorialhungeco.present.Dialog30Activity
-import com.example.androidtutorialhungeco.present.Dialog30ActivityYear
-import com.example.androidtutorialhungeco.present.FocusYearlyPrice
-import com.example.androidtutorialhungeco.present.PayWallActivity
-import com.example.androidtutorialhungeco.present.PaywallOnboard
-import com.example.androidtutorialhungeco.present.UnlockFeature
+import com.eco.musicplayer.audioplayer.music.present.HomeEarthMapActivity
+import com.eco.musicplayer.audioplayer.music.R
+import com.eco.musicplayer.audioplayer.music.common.Constants
+import com.eco.musicplayer.audioplayer.music.phonebook.PhoneBookActivity
+import com.eco.musicplayer.audioplayer.music.present.Dialog30Activity
+import com.eco.musicplayer.audioplayer.music.present.Dialog30ActivityYear
+import com.eco.musicplayer.audioplayer.music.present.FocusYearlyPrice
+import com.eco.musicplayer.audioplayer.music.present.PayWallActivity
+import com.eco.musicplayer.audioplayer.music.present.PaywallOnboard
+import com.eco.musicplayer.audioplayer.music.present.UnlockFeature
 
 class LoginActivity : AppCompatActivity() {
 

@@ -1,11 +1,11 @@
-package com.example.androidtutorialhungeco.present
+package com.eco.musicplayer.audioplayer.music.present
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidtutorialhungeco.databinding.ActivityPaywallDefaultBinding
+import com.eco.musicplayer.audioplayer.music.databinding.ActivityPaywallDefaultBinding
 
 class PayWallActivity: AppCompatActivity(){
 

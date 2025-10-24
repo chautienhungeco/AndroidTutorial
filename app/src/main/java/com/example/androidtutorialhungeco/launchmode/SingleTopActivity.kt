@@ -1,11 +1,11 @@
-package com.example.androidtutorialhungeco.launchmode
+package com.eco.musicplayer.audioplayer.music.launchmode
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidtutorialhungeco.mainui.setupActivity
+import com.eco.musicplayer.audioplayer.music.mainui.setupActivity
 
 class SingleTopActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {

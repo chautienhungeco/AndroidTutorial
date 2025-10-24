@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.common
+package com.eco.musicplayer.audioplayer.music.common
 
 import java.io.Serializable
 

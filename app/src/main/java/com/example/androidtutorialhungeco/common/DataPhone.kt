@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.common
+package com.eco.musicplayer.audioplayer.music.common
 
 sealed class DataPhone {
     data class Header(val letter: Char) : DataPhone() // Tiêu đề nhóm (A, B, C...)

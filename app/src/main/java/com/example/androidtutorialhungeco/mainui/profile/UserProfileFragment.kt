@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.mainui.profile
+package com.eco.musicplayer.audioplayer.music.mainui.profile
 
 import android.content.pm.PackageManager
 import android.Manifest
@@ -16,7 +16,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.androidtutorialhungeco.R
+import com.eco.musicplayer.audioplayer.music.R
 
 class UserProfileFragment : Fragment() {
     private val TAG = "PROFILE_FRAGMENT"

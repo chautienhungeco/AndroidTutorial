@@ -1,10 +1,10 @@
-package com.example.androidtutorialhungeco.phonebook
+package com.eco.musicplayer.audioplayer.music.phonebook
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidtutorialhungeco.R
-import com.example.androidtutorialhungeco.common.DataPhone
+import com.eco.musicplayer.audioplayer.music.R
+import com.eco.musicplayer.audioplayer.music.common.DataPhone
 
 class PhoneBookActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {

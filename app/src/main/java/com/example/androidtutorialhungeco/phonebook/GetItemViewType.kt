@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.phonebook
+package com.eco.musicplayer.audioplayer.music.phonebook
 
 import android.content.ContentValues.TAG
 import android.util.Log
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidtutorialhungeco.R
-import com.example.androidtutorialhungeco.common.Constants
-import com.example.androidtutorialhungeco.common.DataPhone
+import com.eco.musicplayer.audioplayer.music.R
+import com.eco.musicplayer.audioplayer.music.common.Constants
+import com.eco.musicplayer.audioplayer.music.common.DataPhone
 import java.lang.IllegalArgumentException
 
 class ContactAdapter(private val items: List<DataPhone>) :

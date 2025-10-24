@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.androidtutorialhungeco"
+    namespace = "com.eco.musicplayer.audioplayer.music"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.androidtutorialhungeco"
+        applicationId = "com.eco.musicplayer.audioplayer.music"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

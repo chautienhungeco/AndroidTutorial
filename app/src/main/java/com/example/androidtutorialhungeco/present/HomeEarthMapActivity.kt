@@ -1,12 +1,12 @@
-package com.example.androidtutorialhungeco.present
+package com.eco.musicplayer.audioplayer.music.present
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidtutorialhungeco.R
-import com.example.androidtutorialhungeco.auth.LoginActivity
+import com.eco.musicplayer.audioplayer.music.R
+import com.eco.musicplayer.audioplayer.music.auth.LoginActivity
 
 class HomeEarthMapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

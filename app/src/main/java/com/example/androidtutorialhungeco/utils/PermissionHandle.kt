@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.utils
+package com.eco.musicplayer.audioplayer.music.utils
 
 import android.content.Context
 import android.Manifest

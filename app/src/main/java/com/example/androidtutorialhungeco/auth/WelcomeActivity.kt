@@ -1,4 +1,4 @@
-package com.example.androidtutorialhungeco.auth
+package com.eco.musicplayer.audioplayer.music.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.example.androidtutorialhungeco.R
-import com.example.androidtutorialhungeco.common.Constants
-import com.example.androidtutorialhungeco.mainui.MainActivity
+import com.eco.musicplayer.audioplayer.music.R
+import com.eco.musicplayer.audioplayer.music.common.Constants
+import com.eco.musicplayer.audioplayer.music.mainui.MainActivity
 
 class WelcomeActivity : AppCompatActivity() {
 
