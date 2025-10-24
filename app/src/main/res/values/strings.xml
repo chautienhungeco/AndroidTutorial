@@ -78,8 +78,7 @@
     <string name="week"><strike>/week</strike></string>
     <string name="subtitle">Faster compress made simple</string>
     <string name="_30">30%</string>
-    <string name="trial3day">Try 3 days for FREE, then 8.99\$ per \n
-        week. Auto renew, cancel anytime</string>
+    <string name="trial3day">Try 3 days for FREE, then 8.99\$ per week.\n Auto renew, cancel anytime</string>
     <string name="btn_claim_offer">CLAIM OFFER</string>
     <string name="not_found">We couldn’t load the infomation</string>
     <string name="try_again"><u>Try again</u></string>
@@ -108,7 +107,7 @@
         Subscription is not required to use V9Compress</string>
     <string name="yearly">Yearly</string>
     <string name="weekly">Weekly</string>
-    <string name="titlePriceWeekly">$4.99/week after free trial ends. Auto renew, Cancel anytime</string>
+    <string name="titlePriceWeekly">$4.99/week after free trial ends.\n Auto renew, Cancel anytime</string>
     <string name="txtResultYearly">$14.99/year\nAuto renew, Cancel anytime</string>
     <string name="txtResultWeekly">$4.99/week\nAuto renew, Cancel anytime</string>
 </resources>

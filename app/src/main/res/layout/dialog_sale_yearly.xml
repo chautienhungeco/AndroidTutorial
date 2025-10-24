@@ -113,7 +113,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginRight="@dimen/_20sdp"
                 android:background="@drawable/bg_dialog_year"
                 android:fontFamily="@font/funnelsans_semibold"
                 android:gravity="center"
