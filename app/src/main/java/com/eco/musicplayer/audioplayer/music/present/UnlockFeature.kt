@@ -32,7 +32,7 @@ class UnlockFeature : AppCompatActivity() {
         }
     }
 
-    private fun showTrailFreeStae(){
+    private fun showTrailFreeStae() {
         binding.txtTrialFree.visibility = View.INVISIBLE
         binding.btnTryFree.visibility = View.INVISIBLE
         binding.btnLoadingContinue.visibility = View.INVISIBLE
@@ -40,11 +40,12 @@ class UnlockFeature : AppCompatActivity() {
         binding.txtTrialFreePay.visibility = View.VISIBLE
         binding.btnContinue.visibility = View.VISIBLE
 
-        binding.btnContinue.setOnClickListener{
+        binding.btnContinue.setOnClickListener {
             showPayState()
         }
     }
-    private fun showPayState(){
+
+    private fun showPayState() {
         binding.txtTrialFree.visibility = View.VISIBLE
         binding.btnTryFree.visibility = View.VISIBLE
 

@@ -14,19 +14,19 @@ import java.lang.IllegalArgumentException
 
 class ContactAdapter(private val items: List<DataPhone>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    class HeaderViewHolder(view: View): RecyclerView.ViewHolder(view){
+    class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val headerTextView: TextView = view.findViewById(R.id.tvheader)
-        fun bind(header: DataPhone.Header){
+        fun bind(header: DataPhone.Header) {
             headerTextView.text = header.letter.toString()
         }
     }
 
-    class ContactViewHolder(view: View): RecyclerView.ViewHolder(view){
+    class ContactViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val nameTextView: TextView = view.findViewById(R.id.tvName)
         private val avatarTextView: TextView = view.findViewById(R.id.tvAvatar)
 
-        private fun getAvatarColor(firstLetter: Char): Int{
-            return when(firstLetter.uppercaseChar()){
+        private fun getAvatarColor(firstLetter: Char): Int {
+            return when (firstLetter.uppercaseChar()) {
                 'A' -> R.drawable.cr_background_green
                 'B' -> R.drawable.cr_background_orange
                 'C' -> R.drawable.cr_background_pink
@@ -34,7 +34,8 @@ class ContactAdapter(private val items: List<DataPhone>) :
                 else -> R.drawable.cr_background_blue
             }
         }
-        fun bind(dataPhone: DataPhone.Contact){
+
+        fun bind(dataPhone: DataPhone.Contact) {
             nameTextView.text = dataPhone.name
             val firstLetter = dataPhone.name.take(1).uppercase()
             avatarTextView.text = firstLetter
@@ -43,16 +44,31 @@ class ContactAdapter(private val items: List<DataPhone>) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when(items[position]){
+        return when (items[position]) {
             is DataPhone.Header -> Constants.VIEW_TYPE_HEADER
             is DataPhone.Contact -> Constants.VIEW_TYPE_CONTACT
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return when (viewType){
-            Constants.VIEW_TYPE_HEADER -> HeaderViewHolder(inflater.inflate(R.layout.activity_title_header, parent,false))
-            Constants.VIEW_TYPE_CONTACT -> ContactViewHolder(inflater.inflate(R.layout.activity_info_contact, parent,false))
+        return when (viewType) {
+            Constants.VIEW_TYPE_HEADER -> HeaderViewHolder(
+                inflater.inflate(
+                    R.layout.activity_title_header,
+                    parent,
+                    false
+                )
+            )
+
+            Constants.VIEW_TYPE_CONTACT -> ContactViewHolder(
+                inflater.inflate(
+                    R.layout.activity_info_contact,
+                    parent,
+                    false
+                )
+            )
+
             else -> throw IllegalArgumentException("Invalid view type")
         }
     }
@@ -62,11 +78,12 @@ class ContactAdapter(private val items: List<DataPhone>) :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (val item = items[position]){
+        when (val item = items[position]) {
             is DataPhone.Header -> (holder as HeaderViewHolder).bind(item)
             is DataPhone.Contact -> (holder as ContactViewHolder).bind(item)
             else -> {
-                Log.d(TAG, "KHÔNG HỢP LỆ")}
+                Log.d(TAG, "KHÔNG HỢP LỆ")
+            }
         }
     }
 }

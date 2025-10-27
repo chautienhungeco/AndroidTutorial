@@ -7,7 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.eco.musicplayer.audioplayer.music.databinding.ActivityPaywallDefaultBinding
 
-class PayWallActivity: AppCompatActivity(){
+class PayWallActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPaywallDefaultBinding
 

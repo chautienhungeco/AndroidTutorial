@@ -14,6 +14,7 @@ private enum class ScreenState {
     TRIAL_AVAILABLE,
     DEFAULT
 }
+
 class PaywallOnboard : AppCompatActivity() {
 
     private lateinit var binding: ActivityPaywallOnboardBinding
@@ -131,17 +132,20 @@ class PaywallOnboard : AppCompatActivity() {
                 binding.freeTrialContainer.visibility = View.VISIBLE
                 binding.scTrialSwitch.isChecked = true
             }
+
             ScreenState.NO_TRIAL -> {
                 binding.btnContinue.visibility = View.VISIBLE
                 binding.freeTrialContainer.visibility = View.GONE
                 updatePriceResultVisibility(isYearlySelected, isTrialEnabled = false)
             }
+
             ScreenState.TRIAL_AVAILABLE -> {
                 binding.btnContinue.visibility = View.VISIBLE
                 binding.freeTrialContainer.visibility = View.VISIBLE
                 binding.scTrialSwitch.isChecked = false
                 updatePriceResultVisibility(isYearlySelected, isTrialEnabled = false)
             }
+
             ScreenState.DEFAULT -> {
                 binding.btnContinue.visibility = View.INVISIBLE
                 binding.btnTryForFree.visibility = View.VISIBLE

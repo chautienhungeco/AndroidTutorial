@@ -8,7 +8,7 @@ import com.eco.musicplayer.audioplayer.music.R
 import com.eco.musicplayer.audioplayer.music.common.Constants
 import com.eco.musicplayer.audioplayer.music.common.DataInformation
 
-class TransferReceiveActivity: AppCompatActivity(){
+class TransferReceiveActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transfer_receive)
@@ -27,11 +27,11 @@ class TransferReceiveActivity: AppCompatActivity(){
         output.append("mảng (array): ${receiArray?.joinToString()}\n\n")
 
         val receiveObject = intent.getSerializableExtra(Constants.KEY_OBJECT) as? DataInformation
-        if (receiveObject != null){
+        if (receiveObject != null) {
             output.append("Đối tượng Object: \n")
             output.append("Tên: ${receiveObject.name}\n")
             output.append("Tuổi: ${receiveObject.age}\n")
-        }else{
+        } else {
             output.append("NUll or sai kiểu")
         }
         tvReceiveContent.text = output.toString()

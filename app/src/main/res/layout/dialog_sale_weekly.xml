@@ -172,9 +172,9 @@
         android:layout_width="@dimen/_0dp"
         android:layout_height="@dimen/_0dp"
         android:layout_marginHorizontal="@dimen/_20sdp"
+        android:fadeScrollbars="false"
         android:paddingTop="@dimen/_12sdp"
         android:paddingBottom="@dimen/_16sdp"
-        android:fadeScrollbars="false"
         android:scrollbarThumbVertical="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@id/viewContentBg"
         app:layout_constraintEnd_toEndOf="@id/viewContentBg"
@@ -191,7 +191,7 @@
             android:lineSpacingExtra="@dimen/_2ssp"
             android:text="@string/string_policy"
             android:textColor="#EAF5F8"
-            android:textSize="@dimen/_8ssp"/>
+            android:textSize="@dimen/_8ssp" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
