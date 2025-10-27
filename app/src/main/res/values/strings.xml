@@ -78,7 +78,7 @@
     <string name="week"><strike>/week</strike></string>
     <string name="subtitle">Faster compress made simple</string>
     <string name="_30">30%</string>
-    <string name="trial3day">Try 3 days for FREE, then 8.99\$ per week.\n Auto renew, cancel anytime</string>
+    <string name="trial3day">Try %1$s for FREE, then %2$s per week.\n Auto renew, cancel anytime</string>
     <string name="btn_claim_offer">CLAIM OFFER</string>
     <string name="not_found">We couldn’t load the infomation</string>
     <string name="try_again"><u>Try again</u></string>
@@ -110,4 +110,13 @@
     <string name="titlePriceWeekly">$4.99/week after free trial ends.\n Auto renew, Cancel anytime</string>
     <string name="txtResultYearly">$14.99/year\nAuto renew, Cancel anytime</string>
     <string name="txtResultWeekly">$4.99/week\nAuto renew, Cancel anytime</string>
+    <string name="saved_92">Saved 92%</string>
+    <string name="yearly_plan">Yearly plan</string>
+    <string name="_19_99_year">$19.99/year</string>
+    <string name="per_week">Only $0.412 per week</string>
+    <string name="weekly_plan">Weekly Plan</string>
+    <string name="_4_99_week">$4.99/week</string>
+    <string name="renew_wall">$19.99/year after free trial ends.\n Auto renew, cancel anytime</string>
+    <string name="free_trial_3_day">3-day free trial enabled</string>
+    <string name="high_quality_compression">high-quality compression</string>
 </resources>

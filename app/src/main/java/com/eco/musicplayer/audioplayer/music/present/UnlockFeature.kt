@@ -1,11 +1,8 @@
 package com.eco.musicplayer.audioplayer.music.present
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.eco.musicplayer.audioplayer.music.R
 import com.eco.musicplayer.audioplayer.music.databinding.ActivityUnlockFeatureBinding
 
 class UnlockFeature : AppCompatActivity() {
@@ -56,42 +53,3 @@ class UnlockFeature : AppCompatActivity() {
         binding.btnLoadingContinue.visibility = View.INVISIBLE
     }
 }
-
-
-//    private fun showTrialFreeState() {
-//
-//        binding.txtTrialFree.visibility = View.VISIBLE
-//        binding.btnTryFree.visibility = View.VISIBLE
-//
-//        binding.txtTrialFreePay.visibility = View.INVISIBLE
-//        binding.btnContinue.visibility = View.INVISIBLE
-//        binding.btnLoadingContinue.visibility = View.INVISIBLE
-//
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            showLoadingState()
-//        }, 3000)
-//    }
-//
-//    private fun showLoadingState() {
-//        binding.txtTrialFree.visibility = View.INVISIBLE
-//        binding.btnTryFree.visibility = View.INVISIBLE
-//
-//        binding.txtTrialFreePay.visibility = View.INVISIBLE
-//        binding.btnContinue.visibility = View.INVISIBLE
-//
-//        binding.btnLoadingContinue.visibility = View.VISIBLE
-//
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            showPayState()
-//        }, 3000)
-//    }
-//
-//    private fun showPayState() {
-//        binding.txtTrialFree.visibility = View.INVISIBLE
-//        binding.btnTryFree.visibility = View.INVISIBLE
-//        binding.btnLoadingContinue.visibility = View.INVISIBLE
-//
-//        binding.txtTrialFreePay.visibility = View.VISIBLE
-//        binding.btnContinue.visibility = View.VISIBLE
-//    }
-//}

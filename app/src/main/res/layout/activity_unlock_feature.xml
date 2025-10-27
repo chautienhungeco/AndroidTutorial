@@ -30,7 +30,7 @@
                 android:layout_marginLeft="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:fontFamily="@font/bebasneue_regular"
-                android:text="high-quality compression"
+                android:text="@string/high_quality_compression"
                 android:textColor="#0E111B"
                 android:textSize="@dimen/_48ssp"
                 app:layout_constraintEnd_toEndOf="parent"

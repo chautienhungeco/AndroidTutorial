@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.eco.musicplayer.audioplayer.music.R
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.appcompat.widget.AppCompatImageView
 
 class Dialog30Activity : AppCompatActivity() {
 
