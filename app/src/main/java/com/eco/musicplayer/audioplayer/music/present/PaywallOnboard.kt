@@ -7,7 +7,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.eco.musicplayer.audioplayer.music.databinding.ActivityPaywallOnboardBinding
 
-//trạng thái ở màn hình chính
 private enum class ScreenState {
     LOADING,
     NO_TRIAL,
@@ -30,27 +29,23 @@ class PaywallOnboard : AppCompatActivity() {
         binding = ActivityPaywallOnboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // mặc định ban đầu là Weekly (chưa load billing)
         setToggleState(false)
         setScreenState(ScreenState.LOADING)
 
         setupListeners()
 
-        // Để chuyển màn sau 3s
         handler.postDelayed({
             isBillingLoaded = true
             setScreenState(ScreenState.NO_TRIAL)
         }, 3000)
     }
 
-    //hủy các callback
     override fun onDestroy() {
         super.onDestroy()
         handler.removeCallbacksAndMessages(null)
     }
 
     private fun setupListeners() {
-        // Xử lý Yearly Toggle
         binding.yearlyToggle.setOnClickListener {
             if (!isYearlySelected) {
                 setToggleState(true)
@@ -64,7 +59,6 @@ class PaywallOnboard : AppCompatActivity() {
             }
         }
 
-        // 1. Xử lý Weekly Toggle
         binding.weeklyToggle.setOnClickListener {
             if (isYearlySelected) {
                 setToggleState(false)
@@ -78,7 +72,6 @@ class PaywallOnboard : AppCompatActivity() {
             }
         }
 
-        // ấn Switch
         binding.scTrialSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 setScreenState(ScreenState.DEFAULT)
@@ -89,7 +82,6 @@ class PaywallOnboard : AppCompatActivity() {
 
         //
         binding.btnContinue.setOnClickListener {
-            // test chuyển màn ở trạng thái (Không đủ điều kiện trial)
             if (!isTrialAvailable) {
                 isTrialAvailable = true
                 setScreenState(ScreenState.TRIAL_AVAILABLE)
@@ -99,7 +91,6 @@ class PaywallOnboard : AppCompatActivity() {
         binding.btnTryForFree.setOnClickListener {}
     }
 
-    // hiện 1 trong 2 Yearly/Weekly
     private fun setToggleState(isYearly: Boolean) {
         isYearlySelected = isYearly
         if (isYearly) {

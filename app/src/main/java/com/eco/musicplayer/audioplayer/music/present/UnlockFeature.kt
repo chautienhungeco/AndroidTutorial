@@ -18,21 +18,19 @@ class UnlockFeature : AppCompatActivity() {
     }
 
     private fun showLoadingSate() {
+        binding.btnLoadingContinue.visibility = View.VISIBLE
         binding.txtTrialFree.visibility = View.INVISIBLE
         binding.btnTryFree.visibility = View.INVISIBLE
 
         binding.txtTrialFreePay.visibility = View.INVISIBLE
         binding.btnContinue.visibility = View.INVISIBLE
 
-        binding.btnLoadingContinue.visibility = View.VISIBLE
-
-
         binding.btnLoadingContinue.setOnClickListener {
-            showTrailFreeStae()
+            showTrailFreeState()
         }
     }
 
-    private fun showTrailFreeStae() {
+    private fun showTrailFreeState() {
         binding.txtTrialFree.visibility = View.INVISIBLE
         binding.btnTryFree.visibility = View.INVISIBLE
         binding.btnLoadingContinue.visibility = View.INVISIBLE

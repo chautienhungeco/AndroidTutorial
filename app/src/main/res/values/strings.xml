@@ -112,11 +112,15 @@
     <string name="txtResultWeekly">$4.99/week\nAuto renew, Cancel anytime</string>
     <string name="saved_92">Saved 92%</string>
     <string name="yearly_plan">Yearly plan</string>
-    <string name="_19_99_year">$19.99/year</string>
+    <string name="_19_99_year"><b>$19.99</b>/year</string>
     <string name="per_week">Only $0.412 per week</string>
     <string name="weekly_plan">Weekly Plan</string>
-    <string name="_4_99_week">$4.99/week</string>
-    <string name="renew_wall">$19.99/year after free trial ends.\n Auto renew, cancel anytime</string>
+    <string name="_4_99_week"><b>$4.99</b>/week</string>
+    <string name="renew_wall_year">$19.99/year after free trial ends.\n Auto renew, cancel anytime</string>
+    <string name="renew_wall_week">$4.99/week after free trial ends.\n Auto renew, cancel anytime</string>
     <string name="free_trial_3_day">3-day free trial enabled</string>
+    <string name="cancel_anytime">Cancel anytime</string>
     <string name="high_quality_compression">high-quality compression</string>
+    <string name="renew_year_continue">Auto renew at $19.99/year</string>
+    <string name="renew_week_continue">Auto renew at $4.99/week</string>
 </resources>

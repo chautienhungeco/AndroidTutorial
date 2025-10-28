@@ -27,8 +27,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toggleContainer"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_4sdp"
             android:layout_marginHorizontal="@dimen/_48sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/bg_back_toggle"
