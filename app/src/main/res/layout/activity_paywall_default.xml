@@ -102,7 +102,7 @@
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:background="@drawable/gradient_button_claim"
-                android:drawableBottom="@drawable/avd_loading"
+                android:drawableBottom="@drawable/ic_loading"
                 android:paddingBottom="@dimen/_12sdp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"

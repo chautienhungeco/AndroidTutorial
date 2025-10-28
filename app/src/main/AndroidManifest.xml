@@ -22,55 +22,75 @@
 
         <activity
             android:name=".appinit.SplashScreenActivity"
-            android:theme="@style/SplashscreenTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".auth.LoginActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".auth.WelcomeActivity"
             android:exported="false" />
-        <activity android:name=".mainui.MainActivity"
-            android:exported="false"/>
-        <activity android:name=".launchmode.StandardActivity"
-            android:launchMode="standard"
-            android:exported="false"/>
-        <activity android:name=".launchmode.SingleTopActivity"
-            android:launchMode="singleTop"
-            android:exported="false"/>
-        <activity android:name=".launchmode.SingleTaskActivity"
-            android:launchMode="singleTask"
-            android:exported="false"/>
-        <activity android:name=".launchmode.SingleInstanceActivity"
-            android:launchMode="singleInstance"
-            android:exported="false"/>
-        <activity android:name=".simpletransferdata.TransferStarterActivity"
-            android:exported="false"/>
-        <activity android:name=".simpletransferdata.TransferReceiveActivity"
-            android:exported="false"/>
-        <activity android:name=".present.HomeEarthMapActivity"
-            android:exported="false"/>
-        <activity android:name=".present.SettingActivity"
-            android:exported="false"/>
-        <activity android:name=".phonebook.PhoneBookActivity"
-            android:exported="false"/>
-        <activity android:name=".present.PayWallActivity"
-            android:exported="false"/>
-        <activity android:name=".present.Dialog30Activity"
-            android:exported="false"/>
-        <activity android:name=".present.Dialog30ActivityYear"
-            android:exported="false"/>
-        <activity android:name=".present.UnlockFeature"
-            android:exported="false"/>
-        <activity android:name=".present.PaywallOnboard"
-            android:exported="false"/>
-        <activity android:name=".present.FocusYearlyPrice"
-            android:exported="false"/>
+        <activity
+            android:name=".mainui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".launchmode.StandardActivity"
+            android:exported="false"
+            android:launchMode="standard" />
+        <activity
+            android:name=".launchmode.SingleTopActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".launchmode.SingleTaskActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".launchmode.SingleInstanceActivity"
+            android:exported="false"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".simpletransferdata.TransferStarterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".simpletransferdata.TransferReceiveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".present.HomeEarthMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".present.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".phonebook.PhoneBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".present.PayWallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".present.Dialog30Activity"
+            android:exported="false" />
+        <activity
+            android:name=".present.Dialog30ActivityYear"
+            android:exported="false" />
+        <activity
+            android:name=".present.UnlockFeature"
+            android:exported="false" />
+        <activity
+            android:name=".present.PaywallOnboard"
+            android:exported="false" />
+        <activity
+            android:name=".present.FocusYearlyPrice"
+            android:exported="false" />
+        <activity
+            android:name=".present.FocusYearlyBottomSheet"
+            android:exported="false" />
     </application>
 
 </manifest>

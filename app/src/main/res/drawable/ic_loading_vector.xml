@@ -3,10 +3,15 @@
     android:height="20dp"
     android:viewportWidth="11"
     android:viewportHeight="20">
-    <path
-        android:strokeColor="#FFFFFFFF"
-        android:strokeWidth="2"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:pathData="M1 1c4.97 0 9 4.03 9 9 0 0 0 9-9 9"/>
+    <group
+        android:name="loading_vector"
+        android:pivotX="1"
+        android:pivotY="10">
+        <path
+            android:strokeColor="#FFFFFFFF"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M1 1c4.97 0 9 4.03 9 9 0 0 0 9-9 9"/>
+    </group>
 </vector>

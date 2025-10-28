@@ -125,10 +125,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="@font/readexpro_regular"
                         android:text="@string/per_week"
                         android:textColor="#25104A"
                         android:textSize="@dimen/_10ssp"
-                        android:fontFamily="@font/readexpro_regular"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/txtYearlyPlan" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -141,8 +141,8 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                app:cardCornerRadius="@dimen/_8sdp"
                 android:visibility="invisible"
+                app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_2sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -201,10 +201,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="@font/readexpro_regular"
                         android:text="@string/per_week"
                         android:textColor="#25104A"
                         android:textSize="@dimen/_10ssp"
-                        android:fontFamily="@font/readexpro_regular"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/txtYearlyPlanHint" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -274,10 +274,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="@font/readexpro_regular"
                         android:text="@string/per_week"
                         android:textColor="#25104A"
                         android:textSize="@dimen/_10ssp"
-                        android:fontFamily="@font/readexpro_regular"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/txtYearlyPlanLoad" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -290,8 +290,8 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
-                app:cardCornerRadius="@dimen/_8sdp"
                 android:visibility="invisible"
+                app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_2sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -347,10 +347,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="@font/readexpro_regular"
                         android:text="@string/per_week"
                         android:textColor="#25104A"
                         android:textSize="@dimen/_10ssp"
-                        android:fontFamily="@font/readexpro_regular"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/txtYearlyPlanHintLoad" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -411,9 +411,9 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
+                android:visibility="invisible"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_2sdp"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cvYearlyPlan">
@@ -488,9 +488,9 @@
                         android:id="@+id/txtWeeklyPriceHintLoad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/readexpro_regular"
                         android:layout_marginEnd="@dimen/_12sdp"
                         android:drawableEnd="@drawable/ic_loading_black"
+                        android:fontFamily="@font/readexpro_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -505,9 +505,9 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
+                android:visibility="invisible"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_2sdp"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cvYearlyPlanLoad">
@@ -534,9 +534,9 @@
                         android:id="@+id/txtWeeklyPriceLoad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/readexpro_regular"
                         android:layout_marginEnd="@dimen/_12sdp"
                         android:drawableEnd="@drawable/ic_loading_black"
+                        android:fontFamily="@font/readexpro_regular"
                         app:fontFamily="@font/readexpro_bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -606,6 +606,21 @@
                 app:layout_constraintTop_toBottomOf="@id/cvWeeklyPlan" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLoadingBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_btn_blueray"
+                android:drawableRight="@drawable/ic_loading"
+                android:paddingHorizontal="@dimen/_130sdp"
+                android:paddingVertical="@dimen/_4sdp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/cvWeeklyPlan"
+                app:layout_constraintStart_toStartOf="@id/cvWeeklyPlan"
+                app:layout_constraintTop_toBottomOf="@id/txtRenewalInfo" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnTryForFree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -617,7 +632,7 @@
                 android:text="@string/btn_try_for_free"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_16ssp"
-                android:visibility="visible"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="@id/cvWeeklyPlan"
                 app:layout_constraintStart_toStartOf="@id/cvWeeklyPlan"
                 app:layout_constraintTop_toBottomOf="@id/txtRenewalInfo" />

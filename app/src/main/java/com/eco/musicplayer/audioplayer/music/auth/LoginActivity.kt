@@ -16,6 +16,7 @@ import com.eco.musicplayer.audioplayer.music.common.Constants
 import com.eco.musicplayer.audioplayer.music.phonebook.PhoneBookActivity
 import com.eco.musicplayer.audioplayer.music.present.Dialog30Activity
 import com.eco.musicplayer.audioplayer.music.present.Dialog30ActivityYear
+import com.eco.musicplayer.audioplayer.music.present.FocusYearlyBottomSheet
 import com.eco.musicplayer.audioplayer.music.present.FocusYearlyPrice
 import com.eco.musicplayer.audioplayer.music.present.PayWallActivity
 import com.eco.musicplayer.audioplayer.music.present.PaywallOnboard
@@ -65,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
         val btnUnlockFeature = findViewById<Button>(R.id.btnUnlockFeature)
         val btnPaywallOnboard = findViewById<Button>(R.id.btnPaywallOnboard)
         val btnFocusYearlyPrice = findViewById<Button>(R.id.btnFocusYearlyPrice)
+        val btnFocusYearlyBottomSheet = findViewById<Button>(R.id.btnFocusYearlyBottom)
 
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
@@ -119,6 +121,11 @@ class LoginActivity : AppCompatActivity() {
         btnFocusYearlyPrice.setOnClickListener {
             val focusYearlyPriceIntent = Intent(this, FocusYearlyPrice::class.java)
             startActivity(focusYearlyPriceIntent)
+        }
+
+        btnFocusYearlyBottomSheet.setOnClickListener {
+            val focusYearlyBottomSheetIntent = Intent(this, FocusYearlyBottomSheet::class.java)
+            startActivity(focusYearlyBottomSheetIntent)
         }
     }
 

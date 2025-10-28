@@ -4,8 +4,10 @@ import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.eco.musicplayer.audioplayer.music.databinding.ActivityPaywallDefaultBinding
 
 class PayWallActivity : AppCompatActivity() {
@@ -63,11 +65,14 @@ class PayWallActivity : AppCompatActivity() {
         binding.viewSubContainer.visibility = View.VISIBLE
         binding.btnLoading.visibility = View.VISIBLE
 
+        startLoadingAnimation()
     }
 
     private fun showOfferState() {
         binding.viewSubContainer.visibility = View.INVISIBLE
         binding.btnLoading.visibility = View.INVISIBLE
+
+        stopLoadingAnimation()
 
         binding.txtPaymentDetails.visibility = View.VISIBLE
         binding.btnClaimOffer.visibility = View.VISIBLE
@@ -77,5 +82,36 @@ class PayWallActivity : AppCompatActivity() {
         binding.txtPrice899.visibility = View.VISIBLE
 
         binding.headerPrice.visibility = View.VISIBLE
+    }
+
+    private fun startLoadingAnimation() {
+        try {
+            val animatedDrawable = ContextCompat.getDrawable(
+                this,
+                com.eco.musicplayer.audioplayer.music.R.drawable.avd_loading
+            )
+            if (animatedDrawable is Animatable) {
+                binding.btnLoading.setCompoundDrawablesWithIntrinsicBounds(
+                    null,
+                    null,
+                    null,
+                    animatedDrawable
+                )
+                animatedDrawable.start()
+            }
+        } catch (e: Exception) {
+            Log.e("Animation", "Error starting animation: ${e.message}")
+        }
+    }
+
+    private fun stopLoadingAnimation() {
+        try {
+            val drawable = binding.btnLoading.compoundDrawables[2] // drawableBottom
+            if (drawable is Animatable) {
+                drawable.stop()
+            }
+        } catch (e: Exception) {
+            Log.e("Animation", "Error stopping animation: ${e.message}")
+        }
     }
 }
