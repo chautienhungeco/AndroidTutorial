@@ -15,16 +15,31 @@ class Dialog30ActivityYear : AppCompatActivity() {
     companion object {
         private const val TAG = "Dialog30ActivityYear"
 
-        private const val PRODUCT_ID = "test1"
-        private const val OFFER_ID = "test1"
+        const val EXTRA_PRODUCT_ID = "extra_product_id"
+        const val EXTRA_PRODUCT_TYPE = "extra_product_type"
+        const val EXTRA_OFFER_ID = "extra_offer_id"
+
+        private const val DEFAULT_PRODUCT_ID = "free_123"
+        private const val DEFAULT_PRODUCT_TYPE = BillingClient.ProductType.SUBS
+        private const val DEFAULT_OFFER_ID = "7days"
     }
 
-    private val productId = PRODUCT_ID
+    private var productId: String = DEFAULT_PRODUCT_ID
+    private var productType: String = DEFAULT_PRODUCT_TYPE
+    private var offerId: String = DEFAULT_OFFER_ID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DialogSaleYearlyBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        intent?.let { intent ->
+            productId = intent.getStringExtra(EXTRA_PRODUCT_ID) ?: DEFAULT_PRODUCT_ID
+            productType = intent.getStringExtra(EXTRA_PRODUCT_TYPE) ?: DEFAULT_PRODUCT_TYPE
+            offerId = intent.getStringExtra(EXTRA_OFFER_ID) ?: DEFAULT_OFFER_ID
+        }
+
+        Log.d(TAG, "Product ID: $productId, Product Type: $productType, Offer ID: $offerId")
 
         setupCloseButton()
 
@@ -71,7 +86,7 @@ class Dialog30ActivityYear : AppCompatActivity() {
         val productList = listOf(
             QueryProductDetailsParams.Product.newBuilder()
                 .setProductId(productId)
-                .setProductType(BillingClient.ProductType.SUBS)
+                .setProductType(productType)
                 .build()
         )
 
@@ -91,7 +106,11 @@ class Dialog30ActivityYear : AppCompatActivity() {
                     Log.d(TAG, "Title: ${productDetails.title}")
                     Log.d(TAG, "Description: ${productDetails.description}")
 
-                    displayOfferDetails(productDetails)
+                    if (productType == BillingClient.ProductType.SUBS) {
+                        displayOfferDetails(productDetails)
+                    } else {
+                        displayInAppDetails(productDetails)
+                    }
 
                     updateUI(productDetails)
                 } else {
@@ -123,37 +142,64 @@ class Dialog30ActivityYear : AppCompatActivity() {
         }
     }
 
+    private fun displayInAppDetails(productDetails: ProductDetails) {
+        Log.d(TAG, "=== INAPP DETAILS for ${productDetails.productId} ===")
+        Log.d(TAG, "One-Time Purchase Product")
+        Log.d(TAG, "Product ID: ${productDetails.productId}")
+        Log.d(TAG, "Title: ${productDetails.title}")
+        Log.d(TAG, "Description: ${productDetails.description}")
+        
+        productDetails.oneTimePurchaseOfferDetails?.let { offer ->
+            Log.d(TAG, "Price: ${offer.formattedPrice}")
+            Log.d(TAG, "Price Amount: ${offer.priceAmountMicros}")
+            Log.d(TAG, "Price Currency: ${offer.priceCurrencyCode}")
+        }
+    }
+
     private fun updateUI(productDetails: ProductDetails) {
         runOnUiThread {
-            val offers = productDetails.subscriptionOfferDetails
-            if (!offers.isNullOrEmpty()) {
-                val offer = findOfferById(offers, OFFER_ID) ?: offers[0]
+            if (productType == BillingClient.ProductType.SUBS) {
+                val offers = productDetails.subscriptionOfferDetails
+                if (!offers.isNullOrEmpty()) {
+                    val offer = findOfferById(offers, offerId) ?: offers[0]
 
-                val pricingPhases = offer.pricingPhases.pricingPhaseList
+                    val pricingPhases = offer.pricingPhases.pricingPhaseList
 
-                if (pricingPhases.isNotEmpty()) {
-                    val trialPhase = pricingPhases.first()
-                    
-                    val paidPhase = pricingPhases.firstOrNull { it.billingCycleCount == 0 }
-                        ?: run {
-                            if (pricingPhases.size > 1) pricingPhases[1] else pricingPhases.last()
-                        }
+                    if (pricingPhases.isNotEmpty()) {
+                        val trialPhase = pricingPhases.first()
 
-                    val trialPeriod = formatBillingPeriod(trialPhase.billingPeriod)
+                        val paidPhase = pricingPhases.firstOrNull { it.billingCycleCount == 0 }
+                            ?: run {
+                                if (pricingPhases.size > 1) pricingPhases[1] else pricingPhases.last()
+                            }
 
-                    val trialText = getString(
-                        com.eco.musicplayer.audioplayer.music.R.string.trial3day,
-                        trialPeriod,
-                        paidPhase.formattedPrice
-                    )
-                    binding.txtTrialOfferYear.text = trialText
+                        val trialPeriod = formatBillingPeriod(trialPhase.billingPeriod)
+
+                        val trialText = getString(
+                            com.eco.musicplayer.audioplayer.music.R.string.trial3day,
+                            trialPeriod,
+                            paidPhase.formattedPrice
+                        )
+                        binding.txtTrialOfferYear.text = trialText
+                        binding.txtTrialOfferYear.visibility = android.view.View.VISIBLE
+
+                        Log.d(TAG, "=== UI UPDATE (SUBS) ===")
+                        Log.d(TAG, "Trial phase: ${trialPhase.formattedPrice} for ${trialPhase.billingPeriod} (cycles: ${trialPhase.billingCycleCount})")
+                        Log.d(TAG, "Paid phase: ${paidPhase.formattedPrice} for ${paidPhase.billingPeriod} (cycles: ${paidPhase.billingCycleCount})")
+                        Log.d(TAG, "Formatted trial period: $trialPeriod")
+                        Log.d(TAG, "Display text: $trialText")
+                    }
+                }
+            } else {
+                productDetails.oneTimePurchaseOfferDetails?.let { offer ->
+                    val priceText = offer.formattedPrice
+                    binding.txtTrialOfferYear.text = "Lifetime purchase for $priceText"
                     binding.txtTrialOfferYear.visibility = android.view.View.VISIBLE
 
-                    Log.d(TAG, "=== UI UPDATE ===")
-                    Log.d(TAG, "Trial phase: ${trialPhase.formattedPrice} for ${trialPhase.billingPeriod} (cycles: ${trialPhase.billingCycleCount})")
-                    Log.d(TAG, "Paid phase: ${paidPhase.formattedPrice} for ${paidPhase.billingPeriod} (cycles: ${paidPhase.billingCycleCount})")
-                    Log.d(TAG, "Formatted trial period: $trialPeriod")
-                    Log.d(TAG, "Display text: $trialText")
+                    Log.d(TAG, "=== UI UPDATE (INAPP) ===")
+                    Log.d(TAG, "Price: ${offer.formattedPrice}")
+                    Log.d(TAG, "Price Amount: ${offer.priceAmountMicros}")
+                    Log.d(TAG, "Price Currency: ${offer.priceCurrencyCode}")
                 }
             }
 
@@ -170,7 +216,6 @@ class Dialog30ActivityYear : AppCompatActivity() {
 //      P1Y -> "1 year"
 
     private fun formatBillingPeriod(period: String): String {
-        // Remove prefix "P"
         val withoutPrefix = period.removePrefix("P")
 
         return when {
@@ -213,7 +258,55 @@ class Dialog30ActivityYear : AppCompatActivity() {
     }
 
     private fun initiatePurchaseFlow(productDetails: ProductDetails) {
-        Log.d(TAG, "TODO: update then")
+        if (productType == BillingClient.ProductType.SUBS) {
+            initiateSubscriptionPurchase(productDetails)
+        } else {
+            initiateInAppPurchase(productDetails)
+        }
+    }
+
+    private fun initiateSubscriptionPurchase(productDetails: ProductDetails) {
+        val offers = productDetails.subscriptionOfferDetails
+        if (offers.isNullOrEmpty()) {
+            Log.e(TAG, "No subscription offers available")
+            return
+        }
+
+        val offer = findOfferById(offers, offerId) ?: offers[0]
+        val offerToken = offer.offerToken
+
+        val params = BillingFlowParams.newBuilder()
+            .setProductDetailsParamsList(
+                listOf(
+                    BillingFlowParams.ProductDetailsParams.newBuilder()
+                        .setProductDetails(productDetails)
+                        .setOfferToken(offerToken)
+                        .build()
+                )
+            )
+            .build()
+
+        Log.d(TAG, "Launching subscription purchase flow for ${productDetails.productId}")
+        launchBillingFlow(params)
+    }
+
+    private fun initiateInAppPurchase(productDetails: ProductDetails) {
+        val params = BillingFlowParams.newBuilder()
+            .setProductDetailsParamsList(
+                listOf(
+                    BillingFlowParams.ProductDetailsParams.newBuilder()
+                        .setProductDetails(productDetails)
+                        .build()
+                )
+            )
+            .build()
+
+        Log.d(TAG, "Launching in-app purchase flow for ${productDetails.productId}")
+        launchBillingFlow(params)
+    }
+
+    private fun launchBillingFlow(params: BillingFlowParams) {
+        billingClient.launchBillingFlow(this, params)
     }
 
     private fun handlePurchasesUpdated(billingResult: BillingResult, purchases: List<Purchase>?) {
