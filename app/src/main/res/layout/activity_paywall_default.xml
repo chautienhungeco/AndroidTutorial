@@ -194,13 +194,28 @@
                 android:id="@+id/txtNewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_399_week"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_28ssp"
-                android:textStyle="bold"
+                android:text="@string/price_week"
+                android:textColor="#EAF5F8"
+                android:textSize="@dimen/_36ssp"
                 android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:fontFamily="@font/funnelsans_extrabold"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintEnd_toStartOf="@id/txtNewWeekPrice"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headerPrice" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtNewWeekPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/week_price"
+                android:textColor="#EAF5F8"
+                android:textSize="@dimen/_24ssp"
+                android:visibility="invisible"
+                android:paddingTop="@dimen/_12sdp"
+                app:fontFamily="@font/funnelsans_semibold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtNewPrice"
                 app:layout_constraintTop_toBottomOf="@id/headerPrice" />
 
             <androidx.appcompat.widget.AppCompatButton

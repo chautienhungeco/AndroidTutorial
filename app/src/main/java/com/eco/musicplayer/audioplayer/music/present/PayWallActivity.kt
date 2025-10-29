@@ -48,6 +48,7 @@ class PayWallActivity : AppCompatActivity() {
         binding.txtPaymentDetails.visibility = View.INVISIBLE
         binding.btnClaimOffer.visibility = View.INVISIBLE
         binding.txtNewPrice.visibility = View.GONE
+        binding.txtNewWeekPrice.visibility = View.GONE
         binding.txtOFF50.visibility = View.GONE
         binding.txtWeek.visibility = View.GONE
         binding.txtPrice899.visibility = View.INVISIBLE
@@ -77,6 +78,7 @@ class PayWallActivity : AppCompatActivity() {
         binding.txtPaymentDetails.visibility = View.VISIBLE
         binding.btnClaimOffer.visibility = View.VISIBLE
         binding.txtNewPrice.visibility = View.VISIBLE
+        binding.txtNewWeekPrice.visibility = View.VISIBLE
         binding.txtOFF50.visibility = View.VISIBLE
         binding.txtWeek.visibility = View.VISIBLE
         binding.txtPrice899.visibility = View.VISIBLE

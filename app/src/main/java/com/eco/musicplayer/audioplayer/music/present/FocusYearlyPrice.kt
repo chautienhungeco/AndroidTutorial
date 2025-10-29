@@ -51,7 +51,6 @@ class FocusYearlyPrice : AppCompatActivity() {
             finish()
         }
 
-        // Yearly plan selection
         binding.cvYearlyPlan.setOnClickListener {
             selectYearlyPlan()
         }
@@ -60,7 +59,6 @@ class FocusYearlyPrice : AppCompatActivity() {
             selectYearlyPlan()
         }
 
-        // Weekly plan selection
         binding.cvWeeklyPlanHint.setOnClickListener {
             selectWeeklyPlan()
         }
@@ -69,7 +67,6 @@ class FocusYearlyPrice : AppCompatActivity() {
             selectWeeklyPlan()
         }
 
-        // Loading state plan selection
         binding.cvYearlyPlanLoad.setOnClickListener {
             selectYearlyPlanLoad()
         }
@@ -86,7 +83,6 @@ class FocusYearlyPrice : AppCompatActivity() {
             selectWeeklyPlanLoad()
         }
 
-        // Button interactions
         binding.btnTryForFree.setOnClickListener {
             showContinueState()
         }

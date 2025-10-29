@@ -1,158 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1F3F4"
+    android:fillViewport="true"
     tools:context=".present.UnlockFeature">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvDialogContainer"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        app:cardBackgroundColor="#F1F3F4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingTop="@dimen/_30sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_20sdp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtHeaderUnlock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/bebasneue_regular"
+            android:text="@string/high_quality_compression"
+            android:textAlignment="textStart"
+            android:textColor="#0E111B"
+            android:textSize="@dimen/_48ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBackgroundUnlock"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_unlock_quality"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtHeaderUnlock" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txtHeaderUnlock"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:fontFamily="@font/bebasneue_regular"
-                android:text="@string/high_quality_compression"
-                android:textColor="#0E111B"
-                android:textSize="@dimen/_48ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTrialFree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/readexpro_variablefont_hexpwght"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:text="@string/title_unlock"
+            android:textColor="#0E111B"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBackgroundUnlock" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imgBackgroundUnlock"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:background="@drawable/bg_unlock_quality"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtHeaderUnlock" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTrialFreePay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/readexpro_variablefont_hexpwght"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:text="@string/title_unlock_pay"
+            android:textColor="#0E111B"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBackgroundUnlock" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txtTrialFree"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:fontFamily="@font/readexpro_variablefont_hexpwght"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/_8sdp"
-                android:paddingVertical="@dimen/_3sdp"
-                android:text="@string/title_unlock"
-                android:textColor="#0E111B"
-                android:textSize="@dimen/_10ssp"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgBackgroundUnlock" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/bg_btn_black"
+            android:fontFamily="@font/readexpro_bold"
+            android:text="@string/txt_continue"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_14ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTrialFreePay" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txtTrialFreePay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_60sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:fontFamily="@font/readexpro_variablefont_hexpwght"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/_8sdp"
-                android:paddingVertical="@dimen/_3sdp"
-                android:text="@string/title_unlock_pay"
-                android:textColor="#0E111B"
-                android:textSize="@dimen/_10ssp"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgBackgroundUnlock" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLoadingContinue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/bg_btn_gray"
+            android:drawableEnd="@drawable/avd_loading"
+            android:paddingHorizontal="@dimen/_125sdp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTrialFreePay" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnContinue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:background="@drawable/bg_btn_black"
-                android:fontFamily="@font/readexpro_bold"
-                android:text="@string/txt_continue"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_14ssp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toTopOf="@id/txtPolicyForFree"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtTrialFreePay" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTryFree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/bg_btn_black"
+            android:fontFamily="@font/readexpro_bold"
+            android:text="@string/btn_try_for_free"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_14ssp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTrialFree" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnLoadingContinue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:background="@drawable/bg_btn_gray"
-                android:drawableEnd="@drawable/ic_loading"
-                android:paddingHorizontal="@dimen/_135sdp"
-                android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@id/txtPolicyForFree"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtTrialFreePay" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPolicyForFree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/funnelsans_semibold"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_2ssp"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/string_policy_unlock"
+            android:textColor="#4D5A68"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnLoadingContinue" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnTryFree"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:background="@drawable/bg_btn_black"
-                android:fontFamily="@font/readexpro_bold"
-                android:text="@string/btn_try_for_free"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_14ssp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toTopOf="@id/txtPolicyForFree"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtTrialFree" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txtPolicyForFree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:fontFamily="@font/funnelsans_semibold"
-                android:gravity="center_horizontal"
-                android:lineSpacingExtra="@dimen/_2ssp"
-                android:paddingHorizontal="@dimen/_18sdp"
-                android:paddingTop="@dimen/_12sdp"
-                android:paddingBottom="@dimen/_6sdp"
-                android:text="@string/string_policy"
-                android:textColor="#4D5A68"
-                android:textSize="@dimen/_8ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

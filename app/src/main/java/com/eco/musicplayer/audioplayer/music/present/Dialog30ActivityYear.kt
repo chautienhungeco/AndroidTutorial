@@ -15,8 +15,8 @@ class Dialog30ActivityYear : AppCompatActivity() {
     companion object {
         private const val TAG = "Dialog30ActivityYear"
 
-        private const val PRODUCT_ID = "free_123"
-        private const val OFFER_ID = "3days"
+        private const val PRODUCT_ID = "test1"
+        private const val OFFER_ID = "test1"
     }
 
     private val productId = PRODUCT_ID

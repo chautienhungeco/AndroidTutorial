@@ -57,11 +57,18 @@
     <string name="love">Yêu thích</string>
     <string name="phone_book">Danh Bạ</string>
     <string name="string_policy">
-        By continuing, you agree to our <b><u>Terms</u></b> and <b><u>Privacy Policy</u></b>.\n
+        By continuing, you agree to our <b><u>Terms</u></b> and <b><u>Privacy policy</u></b>.\n
       \u2022  Subscription gives you access to V9Compress\'s premium features and removes all ads.\n
     \u2022 Plans auto-renew and can be canceled anytime via Google Play Subscriptions.\n
     \u2022 You will not be charged if you cancel before the trial period ends.\n
     \u2022 Subscription is not required to use V9Compress.
+    </string>
+    <string name="string_policy_unlock">
+        By continuing you agree to our <u>Terms</u> and <u>Privacy policies</u>\n
+        Subscription gives you access to V9Compress\'s premium features, all ads will be removed.\n
+        Subscription plans are automatically renewed and can be canceled anytime in Subscriptions on Google Play.\n
+        You will not be charged if subscription is canceled before trial period ends.\n
+        Subscription is not required to use V9Compress
     </string>
     <string name="policy_yearly">By continuing you agree to our <b><u>Terms</u></b> and <b><u>Privacy policies</u></b>.\n
         \u2022 Subscription gives you access to V9Compress\'s premium features, all ads will be removed.\n
@@ -72,7 +79,8 @@
     <string name="optimize_storage">Optimize Storage, Get Space</string>
     <string name="_899_week"><strike>\$8.99</strike></string>
     <string name="off_50">OFF 50%</string>
-    <string name="_399_week">\$3.99/week</string>
+    <string name="price_week">\$3.99/</string>
+    <string name="week_price">week</string>
     <string name="claim_offer">CLAIM OFFER</string>
     <string name="description_claim">\$3.99 for first week then \$8.99 next week.\n Billed weekly, cancel anytime.</string>
     <string name="week"><strike>/week</strike></string>
@@ -91,13 +99,13 @@
         Subscription is not required to use V9Compress
 
     </string>
-    <string name="title_unlock">$14.99/year after free trial ends.\n Auto renew, cancel anytime</string>
-    <string name="title_unlock_pay">$14.99/year\n Auto renew, cancel anytime</string>
+    <string name="title_unlock">\$14.99/year after free trial ends.\n Auto renew, cancel anytime</string>
+    <string name="title_unlock_pay">\$14.99/year\n Auto renew, cancel anytime</string>
     <string name="btn_try_for_free">Try for free</string>
     <string name="txt_continue">Continue</string>
     <string name="shrink_size">SHRINK SIZE\nKEEP QUALITY</string>
     <string name="keep_quality">KEEP QUALITY</string>
-    <string name="price_title">$14.99/year after free trial ends.\n Auto renew, Cancel anytime</string>
+    <string name="price_title">\$14.99/year after free trial ends.\n Auto renew, Cancel anytime</string>
     <string name="free_trial_enabled">Free trial enabled</string>
     <string name="smarter_storage_made">SMARTER STORAGE MADE\nAFFORDABLE</string>
     <string name="policy_focus_year">By continuing you agree to our Terms and Privacy policies\n
@@ -107,20 +115,20 @@
         Subscription is not required to use V9Compress</string>
     <string name="yearly">Yearly</string>
     <string name="weekly">Weekly</string>
-    <string name="titlePriceWeekly">$4.99/week after free trial ends.\n Auto renew, Cancel anytime</string>
-    <string name="txtResultYearly">$14.99/year\nAuto renew, Cancel anytime</string>
-    <string name="txtResultWeekly">$4.99/week\nAuto renew, Cancel anytime</string>
+    <string name="titlePriceWeekly">\$4.99/week after free trial ends.\n Auto renew, Cancel anytime</string>
+    <string name="txtResultYearly">\$14.99/year\nAuto renew, Cancel anytime</string>
+    <string name="txtResultWeekly">\$4.99/week\nAuto renew, Cancel anytime</string>
     <string name="saved_92">Saved 92%</string>
     <string name="yearly_plan">Yearly plan</string>
-    <string name="_19_99_year"><b>$19.99</b>/year</string>
-    <string name="per_week">Only $0.412 per week</string>
+    <string name="_19_99_year"><b>\$19.99</b>/year</string>
+    <string name="per_week">Only \$0.412 per week</string>
     <string name="weekly_plan">Weekly Plan</string>
-    <string name="_4_99_week"><b>$4.99</b>/week</string>
-    <string name="renew_wall_year">$19.99/year after free trial ends.\n Auto renew, cancel anytime</string>
-    <string name="renew_wall_week">$4.99/week after free trial ends.\n Auto renew, cancel anytime</string>
+    <string name="_4_99_week"><b>\$4.99</b>/week</string>
+    <string name="renew_wall_year">\$19.99/year after free trial ends.\n Auto renew, cancel anytime</string>
+    <string name="renew_wall_week">\$4.99/week after free trial ends.\n Auto renew, cancel anytime</string>
     <string name="free_trial_3_day">3-day free trial enabled</string>
     <string name="cancel_anytime">Cancel anytime</string>
     <string name="high_quality_compression">high-quality compression</string>
-    <string name="renew_year_continue">Auto renew at $19.99/year</string>
-    <string name="renew_week_continue">Auto renew at $4.99/week</string>
+    <string name="renew_year_continue">Auto renew at \$19.99/year</string>
+    <string name="renew_week_continue">Auto renew at \$4.99/week</string>
 </resources>
