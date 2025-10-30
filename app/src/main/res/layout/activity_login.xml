@@ -40,7 +40,7 @@
         android:layout_marginTop="@dimen/_12dp"
         android:text="1"
         android:textColor="#FF0000"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -80,48 +80,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_24dp"
-        android:text="Pay Wall" />
+        android:text="Pay Wall"
+        android:visibility="visible"/>
 
     <Button
         android:id="@+id/btnDialog30"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_24dp"
-        android:text="Dialog30" />
+        android:text="Dialog30"
+        android:visibility="visible"/>
 
     <Button
         android:id="@+id/btnDialog30Year"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="@dimen/_24dp"
-        android:text="Dialog30Year" />
+        android:text="Dialog30Year"
+        android:visibility="visible"/>
 
     <Button
         android:id="@+id/btnUnlockFeature"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="@dimen/_24dp"
-        android:text="Unlock Feature" />
+        android:text="Unlock Feature"
+        android:visibility="visible"/>
 
     <Button
         android:id="@+id/btnPaywallOnboard"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="@dimen/_24dp"
-        android:text="Paywall Onboard" />
+        android:text="Paywall Onboard" android:visibility="visible"/>
 
     <Button
         android:id="@+id/btnFocusYearlyPrice"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="@dimen/_24dp"
-        android:text="FocusYearlyPrice" />
+        android:text="FocusYearlyPrice"
+        android:visibility="visible"/>
 
     <Button
         android:id="@+id/btnFocusYearlyBottom"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="@dimen/_24dp"
-        android:text="FocusYearlyBottomSheet" />
+        android:text="FocusYearlyBottomSheet"
+        android:visibility="visible"/>
 
 </LinearLayout>

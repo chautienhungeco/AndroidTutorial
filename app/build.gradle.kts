@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -58,5 +59,9 @@ dependencies {
     val billing_version = "7.0.0"
     implementation("com.android.billingclient:billing:$billing_version")
     implementation("com.android.billingclient:billing-ktx:$billing_version")
+
+    implementation("com.google.firebase:firebase-config-ktx:21.6.3")
+    implementation ("com.google.code.gson:gson:2.10.1")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
 }

@@ -11,6 +11,10 @@ import com.eco.musicplayer.audioplayer.music.launchmode.SingleInstanceActivity
 import com.eco.musicplayer.audioplayer.music.launchmode.SingleTaskActivity
 import com.eco.musicplayer.audioplayer.music.launchmode.SingleTopActivity
 import com.eco.musicplayer.audioplayer.music.launchmode.StandardActivity
+import com.google.firebase.Firebase
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.remoteConfig
+import com.google.firebase.remoteconfig.remoteConfigSettings
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

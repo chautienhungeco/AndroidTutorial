@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504224532967",
+    "project_id": "androidtutorial-d2091",
+    "storage_bucket": "androidtutorial-d2091.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504224532967:android:6029811245d4e664b75542",
+        "android_client_info": {
+          "package_name": "com.eco.musicplayer.audioplayer.music"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEAxAXlkmA4IunRAhfLoPr7EgDvXyY71s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
