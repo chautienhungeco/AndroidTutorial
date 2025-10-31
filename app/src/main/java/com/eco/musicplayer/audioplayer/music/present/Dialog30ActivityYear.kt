@@ -3,10 +3,14 @@ package com.eco.musicplayer.audioplayer.music.present
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.android.billingclient.api.AcknowledgePurchaseParams
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClientStateListener
+import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.ConsumeParams
 import com.android.billingclient.api.ProductDetails
+import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.eco.musicplayer.audioplayer.music.databinding.DialogSaleYearlyBinding
 import com.eco.musicplayer.audioplayer.music.remoteconfig.InAppProduct
@@ -23,7 +27,7 @@ class Dialog30ActivityYear : AppCompatActivity() {
     private val billingClient: BillingClient by lazy {
         BillingClient.newBuilder(this)
             .setListener { billingResult, purchases ->
-                // TODO Trình mua hàng chưa xử lý - chỉ query giá
+                handlePurchasesUpdated(billingResult, purchases)
             }
             .enablePendingPurchases()
             .build()
@@ -46,6 +50,7 @@ class Dialog30ActivityYear : AppCompatActivity() {
     private var productId: String = ""
     private var productType: String = ""
     private var offerId: String = ""
+    private var currentProductDetails: ProductDetails? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +63,7 @@ class Dialog30ActivityYear : AppCompatActivity() {
         loadProductsFromRemoteConfig()
 
         setupCloseButton()
+        setupPurchaseButton()
     }
 
     private fun loadProductsFromRemoteConfig() {
@@ -95,6 +101,12 @@ class Dialog30ActivityYear : AppCompatActivity() {
         }
     }
 
+    private fun setupPurchaseButton() {
+        binding.btnClaimOfferYear.setOnClickListener {
+            launchPurchaseFlow()
+        }
+    }
+
     private fun initializeBillingClient() {
         // billingClient đã được khởi tạo lazy, chỉ cần trigger và connect
         connectToBillingService()
@@ -129,13 +141,30 @@ class Dialog30ActivityYear : AppCompatActivity() {
             return
         }
 
+        when (productType) {
+            BillingClient.ProductType.SUBS -> querySubscriptionProducts()
+            BillingClient.ProductType.INAPP -> queryInAppProducts()
+            else -> {
+                Log.e(TAG, "Unknown product type: $productType")
+                showErrorState()
+            }
+        }
+    }
+
+    private fun querySubscriptionProducts() {
+        if (productId.isEmpty()) {
+            Log.e(TAG, "Missing subscription product ID from Remote Config")
+            showErrorState()
+            return
+        }
+
         // Hiển thị loading khi bắt đầu query
         showLoadingState()
 
         val productList = listOf(
             QueryProductDetailsParams.Product.newBuilder()
                 .setProductId(productId)
-                .setProductType(productType)
+                .setProductType(BillingClient.ProductType.SUBS)
                 .build()
         )
 
@@ -143,32 +172,74 @@ class Dialog30ActivityYear : AppCompatActivity() {
             .setProductList(productList)
             .build()
 
-        //TODO không dùng cùng lúc cho 2 gói subs và inapp
         billingClient.queryProductDetailsAsync(params) { billingResult, productDetailsList ->
             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                Log.d(TAG, "${Thread.currentThread()} queryProductDetails")
-                Log.d(TAG, "Query product details successful")
+                Log.d(TAG, "${Thread.currentThread()} querySubscriptionProducts")
+                Log.d(TAG, "Query subscription product details successful")
                 if (productDetailsList.isNotEmpty()) {
                     val productDetails = productDetailsList[0]
+                    currentProductDetails = productDetails
                     Log.d(TAG, "Product ID: ${productDetails.productId}")
                     Log.d(TAG, "Product Type: ${productDetails.productType}")
                     Log.d(TAG, "Name: ${productDetails.name}")
                     Log.d(TAG, "Title: ${productDetails.title}")
                     Log.d(TAG, "Description: ${productDetails.description}")
 
-                    if (productType == BillingClient.ProductType.SUBS) {
-                        displayOfferDetails(productDetails)
-                    } else {
-                        displayInAppDetails(productDetails)
-                    }
-
-                    updateUI(productDetails)
+                    displayOfferDetails(productDetails)
+                    updateSubscriptionUI(productDetails)
                 } else {
-                    Log.e(TAG, "No product details found")
+                    Log.e(TAG, "No subscription product details found")
                     showErrorState()
                 }
             } else {
-                Log.e(TAG, "Failed to query product details: ${billingResult.debugMessage}")
+                Log.e(TAG, "Failed to query subscription product details: ${billingResult.debugMessage}")
+                showErrorState()
+            }
+        }
+    }
+
+    private fun queryInAppProducts() {
+        if (productId.isEmpty()) {
+            Log.e(TAG, "Missing in-app product ID from Remote Config")
+            showErrorState()
+            return
+        }
+
+        // Hiển thị loading khi bắt đầu query
+        showLoadingState()
+
+        val productList = listOf(
+            QueryProductDetailsParams.Product.newBuilder()
+                .setProductId(productId)
+                .setProductType(BillingClient.ProductType.INAPP)
+                .build()
+        )
+
+        val params = QueryProductDetailsParams.newBuilder()
+            .setProductList(productList)
+            .build()
+
+        billingClient.queryProductDetailsAsync(params) { billingResult, productDetailsList ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                Log.d(TAG, "${Thread.currentThread()} queryInAppProducts")
+                Log.d(TAG, "Query in-app product details successful")
+                if (productDetailsList.isNotEmpty()) {
+                    val productDetails = productDetailsList[0]
+                    currentProductDetails = productDetails
+                    Log.d(TAG, "Product ID: ${productDetails.productId}")
+                    Log.d(TAG, "Product Type: ${productDetails.productType}")
+                    Log.d(TAG, "Name: ${productDetails.name}")
+                    Log.d(TAG, "Title: ${productDetails.title}")
+                    Log.d(TAG, "Description: ${productDetails.description}")
+
+                    displayInAppDetails(productDetails)
+                    updateInAppUI(productDetails)
+                } else {
+                    Log.e(TAG, "No in-app product details found")
+                    showErrorState()
+                }
+            } else {
+                Log.e(TAG, "Failed to query in-app product details: ${billingResult.debugMessage}")
                 showErrorState()
             }
         }
@@ -219,65 +290,70 @@ class Dialog30ActivityYear : AppCompatActivity() {
         }
     }
 
-    private fun updateUI(productDetails: ProductDetails) {
+    private fun updateSubscriptionUI(productDetails: ProductDetails) {
         runOnUiThread {
             // Ẩn loading, hiển thị thông tin giá đã cập nhật
             binding.btnLoadClaimOfferYear.visibility = android.view.View.INVISIBLE
 
-            if (productType == BillingClient.ProductType.SUBS) {
-                val offers = productDetails.subscriptionOfferDetails
-                if (!offers.isNullOrEmpty()) {
-                    val offer = findOfferById(offers, offerId) ?: offers[0]
+            val offers = productDetails.subscriptionOfferDetails
+            if (!offers.isNullOrEmpty()) {
+                val offer = findOfferById(offers, offerId) ?: offers[0]
 
-                    val pricingPhases = offer.pricingPhases.pricingPhaseList
+                val pricingPhases = offer.pricingPhases.pricingPhaseList
 
-                    //TODO phân loại offer chưa hợp lý, cần xem tổng quan các gói offer -> kiểm tra toàn diện
-                    if (pricingPhases.isNotEmpty()) {
-                        val trialPhase = pricingPhases.first()
+                //TODO phân loại offer chưa hợp lý, cần xem tổng quan các gói offer -> kiểm tra toàn diện
+                if (pricingPhases.isNotEmpty()) {
+                    val trialPhase = pricingPhases.first()
 
-                        val paidPhase = pricingPhases.firstOrNull { it.billingCycleCount == 0 }
-                            ?: run {
-                                if (pricingPhases.size > 1) pricingPhases[1] else pricingPhases.last()
-                            }
+                    val paidPhase = pricingPhases.firstOrNull { it.billingCycleCount == 0 }
+                        ?: run {
+                            if (pricingPhases.size > 1) pricingPhases[1] else pricingPhases.last()
+                        }
 
-                        val trialPeriod = formatBillingPeriod(trialPhase.billingPeriod)
+                    val trialPeriod = formatBillingPeriod(trialPhase.billingPeriod)
 
-                        val trialText = getString(
-                            com.eco.musicplayer.audioplayer.music.R.string.trial3day,
-                            trialPeriod,
-                            paidPhase.formattedPrice
-                        )
-                        binding.txtTrialOfferYear.text = trialText
-                        binding.txtTrialOfferYear.visibility = android.view.View.VISIBLE
-                        // Hiển thị nút claim sau khi đã có giá
-                        binding.btnClaimOfferYear.visibility = android.view.View.VISIBLE
-
-                        Log.d(TAG, "=== UI UPDATE (SUBS) ===")
-                        Log.d(
-                            TAG,
-                            "Trial phase: ${trialPhase.formattedPrice} for ${trialPhase.billingPeriod} (cycles: ${trialPhase.billingCycleCount})"
-                        )
-                        Log.d(
-                            TAG,
-                            "Paid phase: ${paidPhase.formattedPrice} for ${paidPhase.billingPeriod} (cycles: ${paidPhase.billingCycleCount})"
-                        )
-                        Log.d(TAG, "Formatted trial period: $trialPeriod")
-                        Log.d(TAG, "Display text: $trialText")
-                    }
-                }
-            } else {
-                productDetails.oneTimePurchaseOfferDetails?.let { offer ->
-                    val priceText = offer.formattedPrice
-                    binding.txtTrialOfferYear.text = "Lifetime purchase for $priceText"
+                    val trialText = getString(
+                        com.eco.musicplayer.audioplayer.music.R.string.trial3day,
+                        trialPeriod,
+                        paidPhase.formattedPrice
+                    )
+                    binding.txtTrialOfferYear.text = trialText
                     binding.txtTrialOfferYear.visibility = android.view.View.VISIBLE
                     // Hiển thị nút claim sau khi đã có giá
                     binding.btnClaimOfferYear.visibility = android.view.View.VISIBLE
 
-                    Log.d(TAG, "=== UI UPDATE (INAPP) ===")
-                    Log.d(TAG, "Price: ${offer.formattedPrice}")
-                    Log.d(TAG, "Price Amount: ${offer.priceAmountMicros}")
-                    Log.d(TAG, "Price Currency: ${offer.priceCurrencyCode}")
+                    Log.d(TAG, "=== UI UPDATE (SUBS) ===")
+                    Log.d(
+                        TAG,
+                        "Trial phase: ${trialPhase.formattedPrice} for ${trialPhase.billingPeriod} (cycles: ${trialPhase.billingCycleCount})"
+                    )
+                    Log.d(
+                        TAG,
+                        "Paid phase: ${paidPhase.formattedPrice} for ${paidPhase.billingPeriod} (cycles: ${paidPhase.billingCycleCount})"
+                    )
+                    Log.d(TAG, "Formatted trial period: $trialPeriod")
+                    Log.d(TAG, "Display text: $trialText")
                 }
+            }
+        }
+    }
+
+    private fun updateInAppUI(productDetails: ProductDetails) {
+        runOnUiThread {
+            // Ẩn loading, hiển thị thông tin giá đã cập nhật
+            binding.btnLoadClaimOfferYear.visibility = android.view.View.INVISIBLE
+
+            productDetails.oneTimePurchaseOfferDetails?.let { offer ->
+                val priceText = offer.formattedPrice
+                binding.txtTrialOfferYear.text = "Lifetime purchase for $priceText"
+                binding.txtTrialOfferYear.visibility = android.view.View.VISIBLE
+                // Hiển thị nút claim sau khi đã có giá
+                binding.btnClaimOfferYear.visibility = android.view.View.VISIBLE
+
+                Log.d(TAG, "=== UI UPDATE (INAPP) ===")
+                Log.d(TAG, "Price: ${offer.formattedPrice}")
+                Log.d(TAG, "Price Amount: ${offer.priceAmountMicros}")
+                Log.d(TAG, "Price Currency: ${offer.priceCurrencyCode}")
             }
         }
     }
@@ -335,12 +411,168 @@ class Dialog30ActivityYear : AppCompatActivity() {
         }
     }
 
-    // Đã loại bỏ logic mua hàng - chỉ hiển thị thông tin giá
+    private fun launchPurchaseFlow() {
+        val productDetails = currentProductDetails
+        if (productDetails == null) {
+            Log.e(TAG, "Cannot launch purchase flow: productDetails is null")
+            return
+        }
+
+        when (productType) {
+            BillingClient.ProductType.SUBS -> launchSubscriptionPurchase(productDetails)
+            BillingClient.ProductType.INAPP -> launchInAppPurchase(productDetails)
+            else -> {
+                Log.e(TAG, "Unknown product type: $productType")
+            }
+        }
+    }
+
+    private fun launchSubscriptionPurchase(productDetails: ProductDetails) {
+        val offers = productDetails.subscriptionOfferDetails
+        if (offers.isNullOrEmpty()) {
+            Log.e(TAG, "No subscription offers found")
+            return
+        }
+
+        // Tìm offer theo offerId, nếu không có thì lấy offer đầu tiên
+        val selectedOffer = findOfferById(offers, offerId) ?: offers[0]
+        
+        val productDetailsParamsList = listOf(
+            BillingFlowParams.ProductDetailsParams.newBuilder()
+                .setProductDetails(productDetails)
+                .setOfferToken(selectedOffer.offerToken)
+                .build()
+        )
+
+        val billingFlowParams = BillingFlowParams.newBuilder()
+            .setProductDetailsParamsList(productDetailsParamsList)
+            .build()
+
+        val billingResult = billingClient.launchBillingFlow(this, billingFlowParams)
+        
+        if (billingResult.responseCode != BillingClient.BillingResponseCode.OK) {
+            Log.e(TAG, "Failed to launch subscription purchase flow: ${billingResult.debugMessage}")
+        } else {
+            Log.d(TAG, "Subscription purchase flow launched successfully")
+        }
+    }
+
+    private fun launchInAppPurchase(productDetails: ProductDetails) {
+        val oneTimePurchaseOfferDetails = productDetails.oneTimePurchaseOfferDetails
+        if (oneTimePurchaseOfferDetails == null) {
+            Log.e(TAG, "No one-time purchase offer details found")
+            return
+        }
+
+        val productDetailsParamsList = listOf(
+            BillingFlowParams.ProductDetailsParams.newBuilder()
+                .setProductDetails(productDetails)
+                .build()
+        )
+
+        val billingFlowParams = BillingFlowParams.newBuilder()
+            .setProductDetailsParamsList(productDetailsParamsList)
+            .build()
+
+        val billingResult = billingClient.launchBillingFlow(this, billingFlowParams)
+        
+        if (billingResult.responseCode != BillingClient.BillingResponseCode.OK) {
+            Log.e(TAG, "Failed to launch in-app purchase flow: ${billingResult.debugMessage}")
+        } else {
+            Log.d(TAG, "In-app purchase flow launched successfully")
+        }
+    }
+
+    private fun handlePurchasesUpdated(billingResult: BillingResult, purchases: List<Purchase>?) {
+        if (billingResult.responseCode != BillingClient.BillingResponseCode.OK) {
+            Log.e(TAG, "Purchase update failed: ${billingResult.debugMessage}")
+            return
+        }
+
+        purchases?.forEach { purchase ->
+            when {
+                purchase.purchaseState == Purchase.PurchaseState.PURCHASED -> {
+                    if (!purchase.isAcknowledged) {
+                        handlePurchaseSuccess(purchase)
+                    } else {
+                        Log.d(TAG, "Purchase already acknowledged: ${purchase.products}")
+                    }
+                }
+                purchase.purchaseState == Purchase.PurchaseState.PENDING -> {
+                    Log.d(TAG, "Purchase pending: ${purchase.products}")
+                    // Xử lý purchase đang pending (có thể hiển thị thông báo cho user)
+                }
+                else -> {
+                    Log.d(TAG, "Purchase state: ${purchase.purchaseState}")
+                }
+            }
+        }
+    }
+
+    private fun handlePurchaseSuccess(purchase: Purchase) {
+        Log.d(TAG, "=== PURCHASE SUCCESS ===")
+        Log.d(TAG, "Purchase Token: ${purchase.purchaseToken}")
+        Log.d(TAG, "Products: ${purchase.products}")
+        Log.d(TAG, "Purchase State: ${purchase.purchaseState}")
+        Log.d(TAG, "Product Type: $productType")
+
+        when (productType) {
+            BillingClient.ProductType.SUBS -> {
+                // Subscription cần được acknowledge
+                acknowledgePurchase(purchase)
+            }
+            BillingClient.ProductType.INAPP -> {
+                // In-app purchase cần được consume (nếu là consumable) hoặc acknowledge (nếu là non-consumable)
+                // Giả sử lifetime là non-consumable, nên acknowledge thay vì consume
+                acknowledgePurchase(purchase)
+                // Nếu là consumable product, sử dụng: consumePurchase(purchase)
+            }
+            else -> {
+                Log.e(TAG, "Unknown product type for purchase handling")
+            }
+        }
+    }
+
+    private fun acknowledgePurchase(purchase: Purchase) {
+        val acknowledgePurchaseParams = AcknowledgePurchaseParams.newBuilder()
+            .setPurchaseToken(purchase.purchaseToken)
+            .build()
+
+        billingClient.acknowledgePurchase(acknowledgePurchaseParams) { billingResult ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                Log.d(TAG, "Purchase acknowledged successfully: ${purchase.products}")
+                runOnUiThread {
+                    // Có thể hiển thị thông báo thành công hoặc update UI
+                    // finish() // Hoặc đóng dialog sau khi mua thành công
+                }
+            } else {
+                Log.e(TAG, "Failed to acknowledge purchase: ${billingResult.debugMessage}")
+            }
+        }
+    }
+
+    private fun consumePurchase(purchase: Purchase) {
+        val consumeParams = ConsumeParams.newBuilder()
+            .setPurchaseToken(purchase.purchaseToken)
+            .build()
+
+        billingClient.consumeAsync(consumeParams) { billingResult, purchaseToken ->
+            if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                Log.d(TAG, "Purchase consumed successfully: $purchaseToken")
+                runOnUiThread {
+                    // Có thể hiển thị thông báo thành công hoặc update UI
+                }
+            } else {
+                Log.e(TAG, "Failed to consume purchase: ${billingResult.debugMessage}")
+            }
+        }
+    }
 
     private fun switchToProduct(product: InAppProduct) {
         selectedProduct = product
         productId = product.productId ?: ""
         offerId = product.offerId ?: ""
+        currentProductDetails = null // Reset để đợi query mới
 
         // Xác định loại sản phẩm dựa trên productId
         productType = when {
