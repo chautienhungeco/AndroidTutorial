@@ -15,12 +15,29 @@ import com.eco.musicplayer.audioplayer.music.remoteconfig.RemoteConfigManager
 
 class Dialog30ActivityYear : AppCompatActivity() {
 
-    private lateinit var binding: DialogSaleYearlyBinding
+    //TODO Sử dụng lazy để tối ưu hiệu suất và đảm bảo thread-safe initialization
+    private val binding: DialogSaleYearlyBinding by lazy(LazyThreadSafetyMode.NONE) {
+        DialogSaleYearlyBinding.inflate(layoutInflater)
+    }
 
-    private lateinit var billingClient: BillingClient
-    private lateinit var remoteConfig: RemoteConfig
+    private val billingClient: BillingClient by lazy {
+        BillingClient.newBuilder(this)
+            .setListener { billingResult, purchases ->
+                // TODO Trình mua hàng chưa xử lý - chỉ query giá
+            }
+            .enablePendingPurchases()
+            .build()
+    }
+
+    private val remoteConfig: RemoteConfig by lazy {
+        RemoteConfig()
+    }
     private var selectedProduct: InAppProduct? = null
     private var allProducts: List<InAppProduct> = emptyList()
+
+    // Flags để theo dõi việc khởi tạo các lazy properties
+    private var isBillingClientInitialized = false
+    private var isRemoteConfigInitialized = false
 
     companion object {
         private const val TAG = "Dialog30ActivityYear"
@@ -32,17 +49,19 @@ class Dialog30ActivityYear : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DialogSaleYearlyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        remoteConfig = RemoteConfig()
+        // Thiết lập trạng thái ban đầu: ẩn thông tin giá, hiển thị loading
+        showLoadingState()
 
+        // Remote Config sẽ được khởi tạo lazy khi gọi loadProductsFromRemoteConfig()
         loadProductsFromRemoteConfig()
 
         setupCloseButton()
     }
 
     private fun loadProductsFromRemoteConfig() {
+        isRemoteConfigInitialized = true
         remoteConfig.fetchAndActivate {
             // Lấy danh sách product từ Remote Config
             allProducts = RemoteConfigManager.getPaywallConfigOrNull()?.products ?: emptyList()
@@ -65,12 +84,8 @@ class Dialog30ActivityYear : AppCompatActivity() {
                 Log.d(TAG, "All products: $allProducts")
             }
 
-            //ktra billing đã đc khởi tạo chưa
-            if (::billingClient.isInitialized) {
-                queryProductDetails()
-            } else {
-                initializeBillingClient()
-            }
+            // Billing client sẽ được khởi tạo lazy khi gọi initializeBillingClient()
+            initializeBillingClient()
         }
     }
 
@@ -81,22 +96,19 @@ class Dialog30ActivityYear : AppCompatActivity() {
     }
 
     private fun initializeBillingClient() {
-        billingClient = BillingClient.newBuilder(this)
-            .setListener { billingResult, purchases ->
-                //TODO trinh mua hang
-            }
-            .enablePendingPurchases()
-            .build()
-
+        // billingClient đã được khởi tạo lazy, chỉ cần trigger và connect
         connectToBillingService()
     }
 
     private fun connectToBillingService() {
+        isBillingClientInitialized = true
         billingClient.startConnection(object : BillingClientStateListener {
             override fun onBillingSetupFinished(billingResult: BillingResult) {
+                Log.d(TAG, "${Thread.currentThread()} connectToBillingService")
                 if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
                     Log.d(TAG, "Billing setup finished successfully")
                     Log.d(TAG, "=== SUBSCRIPTION PRODUCTS ===")
+                    //check mua rồi
                     queryProductDetails()
                 } else {
                     Log.e(TAG, "Billing setup failed: ${billingResult.debugMessage}")
@@ -116,6 +128,10 @@ class Dialog30ActivityYear : AppCompatActivity() {
             showErrorState()
             return
         }
+
+        // Hiển thị loading khi bắt đầu query
+        showLoadingState()
+
         val productList = listOf(
             QueryProductDetailsParams.Product.newBuilder()
                 .setProductId(productId)
@@ -127,10 +143,11 @@ class Dialog30ActivityYear : AppCompatActivity() {
             .setProductList(productList)
             .build()
 
+        //TODO không dùng cùng lúc cho 2 gói subs và inapp
         billingClient.queryProductDetailsAsync(params) { billingResult, productDetailsList ->
             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+                Log.d(TAG, "${Thread.currentThread()} queryProductDetails")
                 Log.d(TAG, "Query product details successful")
-
                 if (productDetailsList.isNotEmpty()) {
                     val productDetails = productDetailsList[0]
                     Log.d(TAG, "Product ID: ${productDetails.productId}")
@@ -189,8 +206,24 @@ class Dialog30ActivityYear : AppCompatActivity() {
         }
     }
 
+    private fun showLoadingState() {
+        runOnUiThread {
+            // Ẩn thông tin giá và nút claim
+            binding.txtTrialOfferYear.visibility = android.view.View.INVISIBLE
+            binding.btnClaimOfferYear.visibility = android.view.View.INVISIBLE
+            // Hiển thị nút loading
+            binding.btnLoadClaimOfferYear.visibility = android.view.View.VISIBLE
+            // Ẩn thông báo lỗi
+            binding.txtNotFoundYearly.visibility = android.view.View.INVISIBLE
+            binding.txtTryAgain30Year.visibility = android.view.View.INVISIBLE
+        }
+    }
+
     private fun updateUI(productDetails: ProductDetails) {
         runOnUiThread {
+            // Ẩn loading, hiển thị thông tin giá đã cập nhật
+            binding.btnLoadClaimOfferYear.visibility = android.view.View.INVISIBLE
+
             if (productType == BillingClient.ProductType.SUBS) {
                 val offers = productDetails.subscriptionOfferDetails
                 if (!offers.isNullOrEmpty()) {
@@ -198,6 +231,7 @@ class Dialog30ActivityYear : AppCompatActivity() {
 
                     val pricingPhases = offer.pricingPhases.pricingPhaseList
 
+                    //TODO phân loại offer chưa hợp lý, cần xem tổng quan các gói offer -> kiểm tra toàn diện
                     if (pricingPhases.isNotEmpty()) {
                         val trialPhase = pricingPhases.first()
 
@@ -215,6 +249,8 @@ class Dialog30ActivityYear : AppCompatActivity() {
                         )
                         binding.txtTrialOfferYear.text = trialText
                         binding.txtTrialOfferYear.visibility = android.view.View.VISIBLE
+                        // Hiển thị nút claim sau khi đã có giá
+                        binding.btnClaimOfferYear.visibility = android.view.View.VISIBLE
 
                         Log.d(TAG, "=== UI UPDATE (SUBS) ===")
                         Log.d(
@@ -234,6 +270,8 @@ class Dialog30ActivityYear : AppCompatActivity() {
                     val priceText = offer.formattedPrice
                     binding.txtTrialOfferYear.text = "Lifetime purchase for $priceText"
                     binding.txtTrialOfferYear.visibility = android.view.View.VISIBLE
+                    // Hiển thị nút claim sau khi đã có giá
+                    binding.btnClaimOfferYear.visibility = android.view.View.VISIBLE
 
                     Log.d(TAG, "=== UI UPDATE (INAPP) ===")
                     Log.d(TAG, "Price: ${offer.formattedPrice}")
@@ -287,10 +325,13 @@ class Dialog30ActivityYear : AppCompatActivity() {
 
     private fun showErrorState() {
         runOnUiThread {
+            // Ẩn loading và các thành phần giá
+            binding.btnLoadClaimOfferYear.visibility = android.view.View.INVISIBLE
+            binding.txtTrialOfferYear.visibility = android.view.View.INVISIBLE
+            binding.btnClaimOfferYear.visibility = android.view.View.INVISIBLE
+            // Hiển thị thông báo lỗi
             binding.txtNotFoundYearly.visibility = android.view.View.VISIBLE
             binding.txtTryAgain30Year.visibility = android.view.View.VISIBLE
-            binding.btnClaimOfferYear.visibility = android.view.View.INVISIBLE
-            binding.txtTrialOfferYear.visibility = android.view.View.INVISIBLE
         }
     }
 
@@ -311,16 +352,18 @@ class Dialog30ActivityYear : AppCompatActivity() {
         Log.d(TAG, "Đã chuyển sang sản phẩm: $productId, Loại: $productType, Ưu đãi: $offerId")
 
         // Truy vấn lại chi tiết sản phẩm cho lựa chọn mới
-        if (::billingClient.isInitialized) {
-            queryProductDetails()
-        }
+        // billingClient đã được khởi tạo lazy, có thể gọi trực tiếp
+        queryProductDetails()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        if (::billingClient.isInitialized) {
+        // Chỉ cleanup các lazy properties đã được khởi tạo để tránh khởi tạo không cần thiết
+        if (isBillingClientInitialized) {
             billingClient.endConnection()
         }
-        remoteConfig.destroy()
+        if (isRemoteConfigInitialized) {
+            remoteConfig.destroy()
+        }
     }
 }
